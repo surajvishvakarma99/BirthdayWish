@@ -544,7 +544,7 @@
         <div
           id="greeting-card"
           class="card-wrapper relative w-[280px] sm:w-[300px] h-[400px] sm:h-[450px] cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-r-2xl"
-          onclick="window.openNewCard()"
+          onclick="openNewCard()"
         >
           <div
             class="card-inside absolute inset-0 w-full h-full rounded-r-2xl border-l border-black/40 flex flex-col items-center justify-center p-2 sm:p-3"
@@ -845,7 +845,7 @@
       >
         <button
           id="book-next-page-btn"
-          onclick="window.turnPage(event)"
+          onclick="turnPage(event)"
           class="glass-btn px-8 py-3 text-lg font-semibold tracking-wide"
         >
           Aur Pado 📖
@@ -853,7 +853,7 @@
         <!-- Ye sidha Curtain wale step pe jayega -->
         <button
           id="book-next-step-btn"
-          onclick="window.openCurtainStep()"
+          onclick="openCurtainStep()"
           class="glass-btn px-8 py-3 text-lg font-semibold tracking-wide hidden"
         >
           Aage Badhein ➡️
@@ -885,11 +885,11 @@
             <div class="relative w-40 h-40 sm:w-48 sm:h-48 mb-8 sparkle">
                 <div class="absolute inset-0 bg-pink-600 rounded-full blur-2xl opacity-50"></div>
                 <!-- Yahan parde ke andar cake photo lagayi gayi hai -->
-                <img src="cake.png" alt="Birthday Cake" class="w-full h-full object-contain relative z-10 drop-shadow-[0_5px_25px_rgba(255,20,147,0.9)]" onerror="this.src='https://placehold.co/300x300/110008/ff1493?text=Cake'" />
+                <img src="cake2.png" alt="Birthday Cake" class="w-full h-full object-contain relative z-10 drop-shadow-[0_5px_25px_rgba(255,20,147,0.9)]" onerror="this.src='https://placehold.co/300x300/110008/ff1493?text=Cake'" />
             </div>
 
-            <button id="curtain-btn" onclick="window.goToStep(2)" class="glass-btn font-bold py-3 px-8 text-lg z-50 relative mt-2 opacity-0 transition-opacity duration-1000">
-              Abhi Aur Bhi Hai 😉
+            <button id="curtain-btn" onclick="goToStep(2)" class="glass-btn font-bold py-3 px-8 text-lg z-50 relative mt-2 opacity-0 transition-opacity duration-1000">
+                Surprise Aage Hai 😉
             </button>
         </div>
     </div>
@@ -906,7 +906,7 @@
           Meri Favourite Picture and Person dekhna hai? 😉
         </p>
         <button
-          onclick="window.goToStep(3)"
+          onclick="goToStep(3)"
           class="glass-btn font-bold py-3 px-8 text-lg w-full sm:w-auto"
         >
           Haan, dikhao!
@@ -948,7 +948,7 @@
           something crazy are you ready?
         </p>
         <button
-          onclick="window.startFinalCelebration()"
+          onclick="startFinalCelebration()"
           class="glass-btn font-bold py-3 px-8 text-lg"
         >
           Haan ji
@@ -1003,11 +1003,11 @@
           dun? 🫣
         </p>
         <div class="flex justify-center gap-4 sm:gap-6 flex-wrap">
-          <button onclick="window.goToGallery()" class="glass-btn font-bold py-3 px-8">
+          <button onclick="goToGallery()" class="glass-btn font-bold py-3 px-8">
             Haan 😍
           </button>
           <button
-            onclick="window.showAngryPrompt()"
+            onclick="showAngryPrompt()"
             class="glass-btn font-bold py-3 px-8"
           >
             Na 😒
@@ -1026,16 +1026,16 @@
         </p>
         <div class="flex justify-center gap-4 relative flex-wrap w-full">
           <button
-            onclick="window.goToGallery()"
+            onclick="goToGallery()"
             class="glass-btn font-bold py-2 px-4 sm:px-6 z-20 text-sm sm:text-base mx-auto"
           >
             Ha thik hai dikha do 🙄
           </button>
           <button
             id="runaway-btn"
-            onmouseover="window.moveButton()"
-            ontouchstart="window.moveButton()"
-            onclick="window.moveButton()"
+            onmouseover="moveButton()"
+            ontouchstart="moveButton()"
+            onclick="moveButton()"
             class="glass-btn !text-pink-300 font-bold py-2 px-6 sm:px-8 absolute z-30 transform-gpu text-sm sm:text-base border-pink-500 left-0 right-0 mx-auto w-max"
           >
             Na 🏃‍♀️
@@ -1073,10 +1073,10 @@
           />
 
           <div class="absolute left-2 top-1/2 -translate-y-1/2 z-10">
-            <button onclick="window.prevPhoto()" class="glass-btn w-10 h-10 flex justify-center items-center text-xl !p-0">❮</button>
+            <button onclick="prevPhoto()" class="glass-btn w-10 h-10 flex justify-center items-center text-xl !p-0">❮</button>
           </div>
           <div class="absolute right-2 top-1/2 -translate-y-1/2 z-10">
-            <button onclick="window.nextPhoto()" class="glass-btn w-10 h-10 flex justify-center items-center text-xl !p-0">❯</button>
+            <button onclick="nextPhoto()" class="glass-btn w-10 h-10 flex justify-center items-center text-xl !p-0">❯</button>
           </div>
         </div>
 
@@ -1100,13 +1100,13 @@
 
       <div class="mt-8 flex flex-col items-center gap-4 w-full max-w-sm px-4">
         <button
-          onclick="window.goToStep(6)"
+          onclick="goToStep(6)"
           class="glass-btn w-full font-bold py-3 px-4 flex justify-center items-center gap-2 text-sm sm:text-base whitespace-normal break-words leading-tight text-center"
         >
           Aapke liye something crazyyyyyyyy 😜
         </button>
         <button
-          onclick="window.goToStep(4)"
+          onclick="goToStep(4)"
           class="glass-btn w-full max-w-[200px] font-semibold py-2 px-6 text-sm"
         >
           Wapas Piche Jao 🔙
@@ -1181,13 +1181,13 @@
             aapke liye kuch aur bhi hai dikhaun 🙈
           </p>
           <button
-            onclick="window.goToStep(7)"
+            onclick="goToStep(7)"
             class="glass-btn font-bold py-3 px-10 text-lg"
           >
             Han ji ✨
           </button>
           <button
-            onclick="window.goToStep(5)"
+            onclick="goToStep(5)"
             class="glass-btn mt-6 font-semibold py-2 px-6 text-sm"
           >
             Wapas Yaadon Mein 🔙
@@ -1428,13 +1428,13 @@
             connection dekho guys 👀
           </p>
           <button
-            onclick="window.goToStep(8)"
+            onclick="goToStep(8)"
             class="glass-btn font-bold py-3 px-10 text-lg"
           >
             Han ji ✨
           </button>
           <button
-            onclick="window.goToStep(6)"
+            onclick="goToStep(6)"
             class="glass-btn mt-6 font-semibold py-2 px-6 text-sm"
           >
             Wapas Videos Pe 🔙
@@ -1482,7 +1482,7 @@
 
         <div class="mt-12 text-center w-full">
           <button
-            onclick="window.goToStep(7)"
+            onclick="goToStep(7)"
             class="glass-btn font-semibold py-2 px-6 text-sm"
           >
             Wapas ja sakti ho 🔙
@@ -1503,8 +1503,7 @@
       let wishTimeout;
       let typingTimeouts = {};
 
-      // GLOBAL FUNCTIONS FOR INLINE ONCLICK HANDLERS
-      window.goToStep = function(stepNumber) {
+      function goToStep(stepNumber) {
         document.querySelectorAll(".step").forEach((el) => el.classList.remove("active"));
 
         let stepId = `step-${stepNumber}`;
@@ -1526,9 +1525,9 @@
         } else if (stepNumber === 8) {
           startBabyTyping();
         }
-      };
+      }
 
-      window.openNewCard = function() {
+      function openNewCard() {
         const card = document.getElementById("greeting-card");
         const cover = document.getElementById("greeting-cover");
 
@@ -1538,7 +1537,7 @@
           const isMobile = window.innerWidth < 640;
           cover.style.transform = "rotateY(-160deg)";
           
-          // SMART MOBILE CENTERING FIX (Will auto adjust scale based on screen width so it perfectly fits)
+          // SMART MOBILE CENTERING FIX
           const dynamicScale = isMobile ? (window.innerWidth / 620) : 0.9;
           card.style.transform = `translateX(50%) scale(${dynamicScale})`;
           card.style.boxShadow = "0 30px 60px rgba(0,0,0,0.8)";
@@ -1551,9 +1550,9 @@
             }
           }, 1000);
         }
-      };
+      }
 
-      window.turnPage = function(event) {
+      function turnPage(event) {
         event.stopPropagation();
         const page1 = document.getElementById("msg-page-1");
         const page2 = document.getElementById("msg-page-2");
@@ -1570,7 +1569,7 @@
 
         nextPageBtn.classList.add("hidden");
         nextStepBtn.classList.remove("hidden");
-      };
+      }
       
       function typeWriter(elementId, text, speed, callback) {
           if (typingTimeouts[elementId]) {
@@ -1598,8 +1597,8 @@
           type();
       }
 
-      window.openCurtainStep = function() {
-        window.goToStep('curtain');
+      function openCurtainStep() {
+        goToStep('curtain');
         setTimeout(() => {
             document.getElementById('left-curtain').style.transform = 'translateX(-100%)';
             document.getElementById('right-curtain').style.transform = 'translateX(100%)';
@@ -1615,7 +1614,7 @@
                 }, 400);
             }, 1000);
         }, 500);
-      };
+      }
 
       let hasVideoTyped = false;
       function startVideoTyping() {
@@ -1735,8 +1734,8 @@
         setTimeout(() => wrapper.remove(), duration * 1000);
       }
 
-      window.startFinalCelebration = function() {
-        window.goToStep(4);
+      function startFinalCelebration() {
+        goToStep(4);
         setTimeout(() => {
           startConfetti();
           startHearts();
@@ -1746,7 +1745,7 @@
              startWishCycle();
           });
         }, 600);
-      };
+      }
 
       function startWishCycle() {
         const wishTextElement = document.getElementById("wish-text");
@@ -1835,15 +1834,15 @@
         setTimeout(() => container.remove(), duration * 1000);
       }
 
-      window.showAngryPrompt = function() {
+      function showAngryPrompt() {
         document.getElementById("gallery-prompt-1").classList.add("hidden");
         document.getElementById("gallery-prompt-2").classList.remove("hidden");
         document.getElementById("gallery-prompt-2").classList.add("block");
         const bunny = document.getElementById('prank-bunny');
         if(bunny) bunny.style.transform = 'translateY(0) rotate(15deg)';
-      };
+      }
 
-      window.moveButton = function() {
+      function moveButton() {
         const btn = document.getElementById("runaway-btn");
         const isMobile = window.innerWidth < 600;
         const limitX = isMobile ? 80 : 200;
@@ -1851,7 +1850,7 @@
         const xAmount = (Math.random() - 0.5) * limitX;
         const yAmount = (Math.random() - 0.5) * limitY;
         btn.style.transform = `translate(${xAmount}px, ${yAmount}px)`;
-      };
+      }
 
       const memories = [
         { img: "pic1.jpg", text: "aapki simplicity hi aapki sabse badi khoobsurti hai 💫! 💕" },
@@ -1861,16 +1860,16 @@
         { img: "pic5.png", text: "aapko dekhne ke baad toh crush word bhi chhota lagne lagta hai 😏" },
         { img: "pic21.jpeg", text: "Apki Jelfeinnnnn Aye Hayeeeee Flat Ho Gya Main😂" },
         { img: "pic31.png", text: "Some people are beautiful but Mini ji is just something else 💖✨" },
-        { img: "eyes2.png", text: "Chehre pe makeup se jada sar par bindi pasand hai mujhe💖" },
+        { img: "eyes.png", text: "Chehre pe makeup se jada sar par bindi pasand hai mujhe💖" },
         { img: "pic15.jpg", text: "🌸Duniya ki sabse pyari aur dramebaaz ladki. 👑" },
         { img: "pic16.jpg", text: "aap sirf khoobsurat nahi ho aap woh ehsaas ho jo dil ko sukoon de 💖" },
       ];
       let currentPhotoIndex = 0;
 
-      window.goToGallery = function() {
-        window.goToStep(5);
+      function goToGallery() {
+        goToStep(5);
         updateCarouselContent();
-      };
+      }
 
       function updateCarouselContent() {
         const imgEl = document.getElementById("carousel-img");
@@ -1894,15 +1893,15 @@
         }, 250);
       }
 
-      window.nextPhoto = function() {
+      function nextPhoto() {
         currentPhotoIndex = (currentPhotoIndex + 1) % memories.length;
         updateCarouselContent();
-      };
+      }
       
-      window.prevPhoto = function() {
+      function prevPhoto() {
         currentPhotoIndex = (currentPhotoIndex - 1 + memories.length) % memories.length;
         updateCarouselContent();
-      };
+      }
 
       let touchstartX = 0;
       let touchendX = 0;
@@ -1956,8 +1955,8 @@
       }
 
       function handleSwipeGesture() {
-        if (touchendX < touchstartX - 50) window.nextPhoto();
-        if (touchendX > touchstartX + 50) window.prevPhoto();
+        if (touchendX < touchstartX - 50) nextPhoto();
+        if (touchendX > touchstartX + 50) prevPhoto();
       }
     </script>
   </body>
