@@ -1,0 +1,1964 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Happy Birthday Meenakshi!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Dancing+Script:wght@700&family=Parisienne&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100dvh;
+        overflow: hidden;
+        background-color: #050003; /* Deep Dark Base */
+        font-family: "Poppins", sans-serif;
+        color: white;
+        touch-action: manipulation;
+        box-sizing: border-box;
+      }
+
+      /* Premium Dark Neon Background */
+      .bg-animate {
+        background-color: #070005;
+        background-image: 
+            radial-gradient(circle at 15% 50%, rgba(255, 20, 147, 0.15), transparent 40%),
+            radial-gradient(circle at 85% 30%, rgba(255, 105, 180, 0.15), transparent 40%),
+            radial-gradient(circle at 50% 90%, rgba(199, 21, 133, 0.15), transparent 50%);
+        background-size: 150% 150%;
+        animation: neonPulseBG 10s ease-in-out infinite alternate;
+      }
+      @keyframes neonPulseBG {
+        0% { background-position: 0% 0%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 100%; }
+      }
+
+      .cursive-font {
+        font-family: "Dancing Script", cursive;
+      }
+
+      /* Premium Gift Box */
+      @keyframes float-box {
+        0% { transform: translateY(0px) scale(1); filter: drop-shadow(0 5px 15px rgba(255,20,147,0.4)); }
+        50% { transform: translateY(-15px) scale(1.05); filter: drop-shadow(0 20px 30px rgba(255,20,147,0.8)); }
+        100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 5px 15px rgba(255,20,147,0.4)); }
+      }
+      .premium-gift-wrapper {
+        animation: float-box 3s ease-in-out infinite;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .premium-gift-wrapper:active {
+        transform: scale(0.9) translateY(5px);
+      }
+
+      /* Confetti */
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        z-index: 10;
+        animation: fall linear forwards;
+      }
+      @keyframes fall {
+        to {
+          transform: translateY(100vh) rotate(720deg);
+        }
+      }
+
+      /* Floating Hearts Animation */
+      .heart-container {
+        position: absolute;
+        bottom: -100px;
+        z-index: 5;
+        animation: floatUpHeart forwards linear;
+      }
+      .heart {
+        width: 30px;
+        height: 30px;
+        background-color: #ff1493; /* Dark neon pink */
+        transform: rotate(-45deg);
+        position: relative;
+        box-shadow: 0 0 15px rgba(255,20,147,0.5);
+      }
+      .heart::before,
+      .heart::after {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: inherit;
+        border-radius: 50%;
+        box-shadow: 0 0 15px rgba(255,20,147,0.5);
+      }
+      .heart::before {
+        top: -15px;
+        left: 0;
+      }
+      .heart::after {
+        top: 0;
+        left: 15px;
+      }
+
+      @keyframes floatUpHeart {
+        0% { transform: translateY(0) scale(var(--scale, 0.5)) translateX(0); opacity: var(--start-opacity, 0.8); }
+        50% { transform: translateY(-60vh) scale(var(--scale, 1)) translateX(20px); opacity: var(--mid-opacity, 0.8); }
+        100% { transform: translateY(-120vh) scale(var(--scale, 1.2)) translateX(-20px); opacity: 0; }
+      }
+
+      /* Intro Step 1 Floating Decor */
+      .intro-decor {
+        position: absolute;
+        bottom: -60px;
+        z-index: 1;
+        pointer-events: none;
+        animation: floatUpDecor linear forwards;
+      }
+      @keyframes floatUpDecor {
+        0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
+        10% { opacity: 0.6; }
+        90% { opacity: 0.6; }
+        100% { transform: translateY(-110dvh) rotate(360deg) scale(1.2); opacity: 0; }
+      }
+
+      /* Neon Text Styles */
+      .glow-text {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px #ff1493, 0 0 30px #ff007f, 0 0 40px #c71585;
+      }
+      .fade-in {
+        animation: fadeInAnim 1.5s forwards;
+      }
+      @keyframes fadeInAnim {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Dark Neon Glass Cards */
+      .glass-card {
+        background: rgba(15, 0, 10, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 20, 147, 0.3);
+        border-top: 1px solid rgba(255, 105, 180, 0.4);
+        border-radius: 20px;
+        box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(255, 20, 147, 0.15);
+      }
+
+      /* Premium Text Shine Animation */
+      @keyframes shine {
+        to { background-position: 200% center; }
+      }
+      .text-shine {
+        background: linear-gradient(to right, #ffb6c1, #ff1493, #ffb6c1, #ff1493, #ffb6c1);
+        background-size: 200% auto;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        animation: shine 4s linear infinite;
+        text-shadow: 0 0 30px rgba(255, 20, 147, 0.6);
+      }
+
+      /* --- Premium Dark Neon Glass Buttons --- */
+      .glass-btn {
+        background: rgba(255, 20, 147, 0.1);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 20, 147, 0.5);
+        border-top: 1px solid rgba(255, 105, 180, 0.7);
+        box-shadow: 0 0 15px rgba(255, 20, 147, 0.2), inset 0 2px 10px rgba(255, 105, 180, 0.2);
+        color: #fff0f5;
+        border-radius: 9999px;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .glass-btn:hover {
+        background: rgba(255, 20, 147, 0.25);
+        border-color: rgba(255, 105, 180, 0.9);
+        box-shadow: 0 0 25px rgba(255, 20, 147, 0.6), inset 0 2px 15px rgba(255, 105, 180, 0.5);
+        transform: translateY(-3px) scale(1.02);
+        color: #ffffff;
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 15px #ff69b4;
+      }
+      .glass-btn:active {
+        transform: translateY(1px) scale(0.98);
+        box-shadow: 0 0 10px rgba(255, 20, 147, 0.4);
+      }
+
+      /* Funny Animations */
+      @keyframes wiggle {
+        0%, 100% { transform: rotate(-5deg); }
+        50% { transform: rotate(5deg); }
+      }
+      .animate-wiggle {
+        animation: wiggle 3s ease-in-out infinite;
+      }
+
+      /* Steps (Responsive & Centered) */
+      .step {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(0.95) translateY(20px);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 10;
+        width: 100vw;
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+      .step.active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1) translateY(0);
+        z-index: 20;
+      }
+
+      /* --- Dark Mode 3D Greeting Card Styles --- */
+      .perspective-container {
+        perspective: 2000px;
+      }
+      .card-wrapper {
+        transform-style: preserve-3d;
+        transition: transform 1.2s cubic-bezier(0.68, -0.15, 0.265, 1.15);
+        animation: float 4s ease-in-out infinite;
+      }
+      .card-wrapper.open {
+        animation: none;
+      }
+      @keyframes float {
+        0% { transform: translateY(0px) rotateX(2deg) rotateY(-2deg); filter: drop-shadow(0 15px 25px rgba(255,20,147,0.2)); }
+        50% { transform: translateY(-10px) rotateX(-2deg) rotateY(2deg); filter: drop-shadow(0 25px 35px rgba(255,20,147,0.4)); }
+        100% { transform: translateY(0px) rotateX(2deg) rotateY(-2deg); filter: drop-shadow(0 15px 25px rgba(255,20,147,0.2)); }
+      }
+      .card-cover {
+        transform-origin: left center;
+        transform-style: preserve-3d;
+        transition: transform 1.2s cubic-bezier(0.68, -0.15, 0.265, 1.15);
+        z-index: 10;
+        backface-visibility: hidden;
+      }
+      .card-face {
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      /* Dark Neon Card Cover */
+      .cover-front {
+        background: linear-gradient(135deg, #240010 0%, #0a0005 100%);
+        border-left: 2px solid #ff1493;
+        z-index: 2;
+      }
+      .cover-back {
+        transform: rotateY(180deg);
+        background: linear-gradient(to right, #110008, #050003);
+        box-shadow: inset -10px 0 20px rgba(0, 0, 0, 0.8);
+        z-index: 1;
+      }
+      .card-inside {
+        background: linear-gradient(to left, #110008, #050003);
+        box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.8);
+        z-index: 1;
+      }
+      .inner-page-border {
+        border: 1px dashed rgba(255, 20, 147, 0.4);
+        box-shadow: inset 0 0 30px rgba(255, 20, 147, 0.15);
+        background-image:
+          linear-gradient(rgba(255, 20, 147, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 20, 147, 0.1) 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+      .pink-gold-border {
+        border: 1px solid rgba(255, 20, 147, 0.5);
+        box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+      }
+
+      .neon-text {
+        color: #fff;
+        text-shadow: 0 0 2px rgba(255,255,255,0.8), 0 0 5px rgba(255,20,147,0.8), 0 0 10px rgba(255,20,147,0.8), 0 0 20px rgba(255,20,147,0.6);
+        animation: pulsateSoft 2s infinite alternate;
+      }
+      @keyframes pulsateSoft {
+        100% { text-shadow: 0 0 3px #fff, 0 0 8px rgba(255,105,180,0.9), 0 0 15px rgba(255,20,147,0.8), 0 0 30px rgba(255,20,147,0.6); }
+        0% { text-shadow: 0 0 1px #fff, 0 0 4px rgba(255,105,180,0.6), 0 0 8px rgba(255,20,147,0.5), 0 0 15px rgba(255,20,147,0.3); }
+      }
+
+      .sparkle {
+        animation: sparklePulse 2s infinite alternate;
+      }
+      @keyframes sparklePulse {
+        0% { opacity: 0.5; transform: scale(0.9); filter: drop-shadow(0 0 5px rgba(255,105,180,0.5));}
+        100% { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 0 15px rgba(255,20,147,0.8));}
+      }
+      .font-parisienne {
+        font-family: "Parisienne", cursive;
+      }
+
+      /* Photo Frame Glow Dark Theme */
+      .photo-frame {
+        border: 2px solid rgba(255, 105, 180, 0.8);
+        border-radius: 12px;
+        box-shadow: 0 0 30px rgba(255, 20, 147, 0.6), 0 10px 40px rgba(0,0,0,0.8);
+        max-width: 85vw;
+        max-height: 55vh;
+        object-fit: cover;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Carousel & Video Styles Dark Theme */
+      .readable-caption {
+        font-family: "Caveat", cursive;
+        font-size: 1.8rem;
+        color: #ffb6c1;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9), 0 0 10px rgba(255,20,147,0.5);
+        line-height: 1.2;
+      }
+      .gallery-carousel-card {
+        background: rgba(15, 0, 10, 0.6);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 20, 147, 0.4);
+        border-radius: 20px;
+        padding: 16px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(255, 20, 147, 0.2);
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+      }
+
+      #runaway-btn {
+        transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      .video-card {
+        background: rgba(15, 0, 10, 0.6);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 20, 147, 0.4);
+        border-radius: 24px;
+        padding: 16px;
+        margin-bottom: 30px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(255, 20, 147, 0.2);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        max-width: 340px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .video-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(255, 20, 147, 0.5), inset 0 0 30px rgba(255, 20, 147, 0.3);
+        border-color: rgba(255, 105, 180, 0.8);
+      }
+      .video-frame {
+        width: 100%;
+        border-radius: 16px;
+        outline: none;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+        background: #000;
+        aspect-ratio: 9/16;
+        object-fit: cover;
+      }
+
+      .scrollable-content {
+        justify-content: flex-start !important;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-top: 3rem;
+        padding-bottom: 8rem;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 20, 147, 0.5) rgba(0, 0, 0, 0.5);
+        width: 100vw;
+      }
+      .scrollable-content::-webkit-scrollbar {
+        width: 6px;
+      }
+      .scrollable-content::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .scrollable-content::-webkit-scrollbar-thumb {
+        background: rgba(255, 20, 147, 0.6);
+        border-radius: 10px;
+        box-shadow: 0 0 5px rgba(255,20,147,0.5);
+      }
+
+      /* Premium Bento Collage Styles Dark Theme */
+      .collage-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 20, 147, 0.3);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(15, 0, 10, 0.5);
+      }
+      .collage-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .collage-card:hover {
+        transform: translateY(-5px) scale(1.02);
+        border-color: rgba(255, 105, 180, 0.8);
+        box-shadow: 0 15px 40px rgba(255, 20, 147, 0.6), inset 0 0 20px rgba(255, 20, 147, 0.3);
+        z-index: 10;
+      }
+      .collage-card:hover .collage-img {
+        transform: scale(1.1);
+      }
+      .collage-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 70%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        display: flex;
+        align-items: flex-end;
+        padding: 20px;
+      }
+      .collage-card:hover .collage-overlay {
+        opacity: 1;
+      }
+
+      /* Typing Animation Cursor */
+      .typing-cursor::after {
+        content: '|';
+        animation: blink 0.7s infinite;
+        color: #ff1493;
+        font-weight: 300;
+      }
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+    </style>
+  </head>
+  <body
+    class="flex items-center justify-center min-h-screen relative selection:bg-pink-500 selection:text-white bg-animate overflow-hidden"
+  >
+    <!-- Background Hearts Layer -->
+    <div
+      id="bg-hearts-layer"
+      class="fixed inset-0 pointer-events-none z-0 opacity-0 transition-opacity duration-1000 overflow-hidden"
+    ></div>
+
+    <!-- Step 1: Intro / Gift Box -->
+    <div
+      id="step-1"
+      class="step active w-full px-4 flex items-center justify-center"
+    >
+      <div
+        class="glass-card p-6 sm:p-12 text-center max-w-md w-full mx-auto relative overflow-hidden flex flex-col items-center justify-center min-h-[400px]"
+      >
+        <div class="absolute -top-10 -left-10 w-40 h-40 bg-pink-600/20 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-purple-600/20 rounded-full blur-3xl"></div>
+
+        <h1
+          class="text-4xl sm:text-5xl font-bold mb-3 cursive-font text-shine relative z-10 w-full tracking-wide leading-tight break-words"
+        >
+          Hey Meenakshi Ji
+        </h1>
+        <p
+          class="text-base sm:text-xl text-pink-100 mb-10 font-light tracking-wide font-['Poppins'] relative z-10"
+        >
+          Dear Mini ji, aapke liye kuch crazy hai! ✨
+        </p>
+
+        <div
+          class="premium-gift-wrapper relative z-10 flex items-center justify-center"
+          onclick="goToStep('1-5')"
+        >
+          <div class="relative w-32 h-32 sm:w-40 sm:h-40 sparkle">
+            <div class="absolute inset-0 bg-pink-600 rounded-full blur-2xl opacity-50"></div>
+            <!-- Yahan step 1 par cake photo lagayi gayi hai -->
+            <img src="cake2.png" alt="Birthday Cake" class="w-full h-full object-contain relative z-10 drop-shadow-[0_5px_25px_rgba(255,20,147,0.9)]" onerror="this.src='https://placehold.co/200x200/110008/ff1493?text=Cake'" />
+          </div>
+        </div>
+
+        <p
+          class="mt-10 text-xs sm:text-sm text-pink-300 animate-pulse font-medium tracking-widest relative z-10 glow-text"
+        >
+          CAKE PE TAP KARO
+        </p>
+      </div>
+    </div>
+
+    <!-- Step 1.5: Greeting Card / Book -->
+    <div
+      id="step-1-5"
+      class="step w-full px-4 flex-col items-center justify-center relative"
+    >
+      <div
+        class="absolute inset-0 overflow-hidden pointer-events-none opacity-20 z-0"
+      >
+        <svg
+          class="absolute top-10 left-10 w-16 h-16 sm:w-24 sm:h-24 text-pink-500 animate-pulse drop-shadow-[0_0_15px_rgba(255,20,147,0.8)]"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+          />
+        </svg>
+        <svg
+          class="absolute bottom-20 right-10 w-20 h-20 sm:w-32 sm:h-32 text-pink-600 sparkle drop-shadow-[0_0_15px_rgba(255,20,147,0.8)]"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+          />
+        </svg>
+      </div>
+
+      <h2
+        class="text-3xl md:text-5xl cursive-font text-white mb-6 drop-shadow-lg tracking-wide text-center glow-text z-10"
+      >
+        Chaliye Shuru Karte hain 💌
+      </h2>
+
+      <div
+        class="perspective-container w-full flex items-center justify-center z-10"
+      >
+        <div
+          id="greeting-card"
+          class="card-wrapper relative w-[280px] sm:w-[300px] h-[400px] sm:h-[450px] cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-r-2xl"
+          onclick="window.openNewCard()"
+        >
+          <div
+            class="card-inside absolute inset-0 w-full h-full rounded-r-2xl border-l border-black/40 flex flex-col items-center justify-center p-2 sm:p-3"
+          >
+            <div
+              class="inner-page-border w-full h-full rounded-xl flex flex-col items-center p-3 sm:p-4 text-center relative bg-black/60 overflow-hidden shadow-[inset_0_0_20px_rgba(0,0,0,0.8)]"
+            >
+              <!-- Fixed Corner Decor -->
+              <div
+                class="absolute top-2 right-2 text-pink-500/60 z-30 pointer-events-none drop-shadow-[0_0_5px_rgba(255,20,147,0.5)]"
+              >
+                <svg
+                  class="w-5 h-5 sm:w-6 sm:h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="absolute bottom-2 left-2 text-pink-500/60 z-30 pointer-events-none drop-shadow-[0_0_5px_rgba(255,20,147,0.5)]"
+              >
+                <svg
+                  class="w-5 h-5 sm:w-6 sm:h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                  />
+                </svg>
+              </div>
+
+              <!-- Fixed Heading inside Card -->
+              <h2
+                class="font-parisienne text-[26px] sm:text-4xl text-[#ff69b4] mt-0.5 z-30 relative w-full whitespace-nowrap drop-shadow-[0_0_10px_rgba(255,20,147,0.5)]"
+              >
+                Dearest Mini Ji,
+              </h2>
+
+              <!-- Pages Container -->
+              <div
+                class="relative w-full flex-grow mt-1.5 overflow-hidden flex flex-col items-center w-full"
+              >
+                <!-- PAGE 1 (Text compressed & centered securely) -->
+                <div
+                  id="msg-page-1"
+                  class="absolute inset-0 w-full h-full flex flex-col justify-center items-center gap-1 sm:gap-1.5 transition-all duration-700 ease-in-out transform translate-x-0 opacity-100 pb-2 px-1 text-center"
+                >
+                  <p class="font-bold text-pink-400 text-[10px] sm:text-[13px] drop-shadow-[0_0_5px_rgba(255,20,147,0.5)] w-full">
+                    Happy Birthday meenakshi! 🎂
+                  </p>
+                  <p
+                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
+                  >
+                    Thank you for being always there, samajhne ke liye, aur bina
+                    reason hasane aur hasne ke liye 😄
+                  </p>
+                  <p
+                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
+                  >
+                    Apki smile aapka nature aur apki vibe sab top class hai 💖
+                    Aur haan, aap natural hi itni pretty hai ki filters bhi
+                    confuse ho jaate hain 😆✨
+                  </p>
+                  <p
+                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
+                  >
+                    Bhagwan kare aapki life happiness, success aur love se full
+                    rahe ✨
+                  </p>
+                  <p
+                    class="font-bold text-pink-400 text-[9.5px] sm:text-[12px] drop-shadow-[0_0_8px_rgba(255,20,147,0.6)] whitespace-nowrap w-full"
+                  >
+                    🎂Happy Birthday Beautiful Queen!🎂
+                  </p>
+                  <p
+                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
+                  >
+                    Hamesha aise hi hasi-mazaak karti reh, life ko enjoy karti
+                    reh ✨ Aur haan, cake ka bada piece mere liye save rakhna 😋
+                  </p>
+                </div>
+
+                <!-- PAGE 2 -->
+                <div
+                  id="msg-page-2"
+                  class="absolute inset-0 w-full h-full flex flex-col justify-center items-center gap-1 sm:gap-1.5 transition-all duration-700 ease-in-out transform translate-x-full opacity-0 pointer-events-none pb-2 pt-1 px-1 text-center"
+                >
+                  <p
+                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
+                  >
+                    Sach bolu na… aap sirf meri friend nahi, meri daily smile ka
+                    reason hai 😊 apki hasi, aur cute si baatein… sab kuch
+                    special hai 💖
+                  </p>
+                  <p
+                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
+                  >
+                    Aur haan, thodi si pagal bhi hai… par wahi aapko aur pyari
+                    banata hai 😄
+                  </p>
+                  <p
+                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
+                  >
+                    Apka Bachpna Apko Sabse Special Banata Hai
+                  </p>
+                  <p
+                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
+                  >
+                    I Wish Aap hamesha aise hi khush rahe, haste rahe, aur
+                    meri life mein apni cuteness failati rahe✨ Aur please
+                    kabhi change mat hona aap aisi hi perfect hai💫
+                  </p>
+                  <p
+                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
+                  >
+                    Aise hi beautiful,dulari and pyari bani reh Aur party dena
+                    mat bhulna warna mujhe gussa aa jayega crazy wala
+                  </p>
+                  <div class="flex flex-col items-center w-full mt-1">
+                    <div class="w-10 h-px bg-pink-500 mb-1 shadow-[0_0_10px_#ff1493]"></div>
+                    <p
+                      class="font-['Caveat'] font-bold text-[12px] sm:text-[15px] leading-tight text-pink-400 px-1 w-full drop-shadow-[0_0_5px_rgba(255,20,147,0.5)]"
+                    >
+                      you are the most valuable or beautiful person in my jeevan
+                      🤭
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            id="greeting-cover"
+            class="card-cover absolute inset-0 w-full h-full rounded-r-2xl"
+          >
+            <div
+              class="cover-front card-face rounded-r-2xl flex items-center justify-center p-4 sm:p-5 shadow-[5px_0_20px_rgba(0,0,0,0.6)]"
+            >
+              <div
+                class="pink-gold-border w-full h-full rounded-xl flex flex-col items-center justify-center p-4 sm:p-6 relative overflow-hidden bg-gradient-to-b from-white/5 to-transparent"
+              >
+                <div
+                  class="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-pink-500 shadow-[0_0_10px_#ff1493]"
+                ></div>
+                <div
+                  class="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-pink-500 shadow-[0_0_10px_#ff1493]"
+                ></div>
+                <div
+                  class="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-pink-500 shadow-[0_0_10px_#ff1493]"
+                ></div>
+                <div
+                  class="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-pink-500 shadow-[0_0_10px_#ff1493]"
+                ></div>
+
+                <div class="relative w-20 h-20 sm:w-24 sm:h-24 mb-6 sparkle">
+                  <div
+                    class="absolute inset-0 bg-pink-600 rounded-full blur-xl opacity-60"
+                  ></div>
+                  <!-- Original SVG Cake restored -->
+                  <svg
+                    viewBox="0 0 256 256"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-full h-full relative z-10 drop-shadow-[0_5px_25px_rgba(255,20,147,0.9)]"
+                  >
+                    <ellipse
+                      cx="128"
+                      cy="210"
+                      rx="90"
+                      ry="20"
+                      fill="#240010"
+                      stroke="#ff1493"
+                      stroke-width="4"
+                    />
+                    <path
+                      d="M60 205 V 140 C 60 130, 196 130, 196 140 V 205 C 196 215, 60 215, 60 205 Z"
+                      fill="#4a0024"
+                    />
+                    <path
+                      d="M60 140 Q 75 160 90 140 Q 105 165 128 140 Q 150 160 166 140 Q 180 165 196 140 V 135 C 196 125, 60 125, 60 135 Z"
+                      fill="#ff1493"
+                    />
+                    <path
+                      d="M85 140 V 85 C 85 75, 171 75, 171 85 V 140 Z"
+                      fill="#7a003c"
+                    />
+                    <path
+                      d="M85 85 Q 100 105 115 85 Q 128 110 140 85 Q 155 105 171 85 V 80 C 171 70, 85 70, 85 80 Z"
+                      fill="#ff69b4"
+                    />
+                    <rect
+                      x="110"
+                      y="45"
+                      width="8"
+                      height="35"
+                      rx="2"
+                      fill="#fff"
+                      stroke="#ff1493"
+                      stroke-width="1"
+                      class="drop-shadow-[0_0_5px_#ff1493]"
+                    />
+                    <rect
+                      x="138"
+                      y="45"
+                      width="8"
+                      height="35"
+                      rx="2"
+                      fill="#fff"
+                      stroke="#ff1493"
+                      stroke-width="1"
+                      class="drop-shadow-[0_0_5px_#ff1493]"
+                    />
+                    <path
+                      d="M110 55 L118 50 M110 65 L118 60 M110 75 L118 70"
+                      stroke="#ff1493"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M138 55 L146 50 M138 65 L146 60 M138 75 L146 70"
+                      stroke="#ff1493"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M114 43 Q 110 35 114 25 Q 118 35 114 43 Z"
+                      fill="#fff"
+                      class="animate-pulse drop-shadow-[0_0_10px_#fff]"
+                    />
+                    <path
+                      d="M142 43 Q 138 35 142 25 Q 146 35 142 43 Z"
+                      fill="#fff"
+                      class="animate-pulse drop-shadow-[0_0_10px_#fff]"
+                    />
+                    <circle cx="90" cy="180" r="4" fill="#ff1493" class="drop-shadow-[0_0_5px_#ff1493]"/>
+                    <circle cx="128" cy="180" r="4" fill="#ff1493" class="drop-shadow-[0_0_5px_#ff1493]"/>
+                    <circle cx="166" cy="180" r="4" fill="#ff1493" class="drop-shadow-[0_0_5px_#ff1493]"/>
+                  </svg>
+                </div>
+
+                <h1
+                  class="font-parisienne text-3xl sm:text-5xl font-bold neon-text mb-4 text-center leading-tight"
+                >
+                  Happy Birthday<br />Dear Mini Ji
+                </h1>
+              </div>
+            </div>
+
+            <div
+              class="cover-back card-face rounded-l-2xl flex items-center justify-center p-3 sm:p-4 border-r border-black/40"
+            >
+              <div
+                class="inner-page-border w-full h-full rounded-xl flex items-center justify-center p-4 sm:p-6 relative bg-black/60 shadow-[inset_0_0_20px_rgba(0,0,0,0.8)]"
+              >
+                <div
+                  class="absolute inset-0 flex items-center justify-center opacity-10"
+                >
+                  <svg
+                    class="w-32 h-32 text-pink-500"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                    />
+                  </svg>
+                </div>
+                <div class="text-center relative z-10">
+                  <svg
+                    class="w-6 h-6 sm:w-8 sm:h-8 text-pink-500 mx-auto mb-3 drop-shadow-[0_0_10px_rgba(255,20,147,0.8)]"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"
+                    />
+                  </svg>
+                  <p
+                    class="font-['Playfair_Display'] italic text-pink-200 text-xs sm:text-sm leading-relaxed font-semibold"
+                  >
+                    "Count your life by smiles, not tears.<br />Count your age
+                    by friends, not years."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buttons OUTSIDE the card -->
+      <div
+        id="step-1-5-btn-container"
+        class="mt-8 z-20 flex flex-col items-center opacity-0 pointer-events-none transition-opacity duration-500 w-full"
+      >
+        <button
+          id="book-next-page-btn"
+          onclick="window.turnPage(event)"
+          class="glass-btn px-8 py-3 text-lg font-semibold tracking-wide"
+        >
+          Aur Pado 📖
+        </button>
+        <!-- Ye sidha Curtain wale step pe jayega -->
+        <button
+          id="book-next-step-btn"
+          onclick="window.openCurtainStep()"
+          class="glass-btn px-8 py-3 text-lg font-semibold tracking-wide hidden"
+        >
+          Aage Badhein ➡️
+        </button>
+      </div>
+    </div>
+
+    <!-- NAYA STEP: Curtain Reveal & Cake -->
+    <div id="step-curtain" class="step w-full h-full px-0 overflow-hidden relative bg-[#070005]">
+        <!-- Fatake Wala Canvas -->
+        <canvas id="fireworks-canvas" class="absolute inset-0 z-0 pointer-events-none"></canvas>
+        
+        <!-- Left Curtain -->
+        <div id="left-curtain" class="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-[#2a0010] to-[#4a0024] border-r-2 border-pink-500 z-50 transition-transform duration-[2s] ease-in-out shadow-[5px_0_15px_rgba(0,0,0,0.8)]"></div>
+        
+        <!-- Right Curtain -->
+        <div id="right-curtain" class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#2a0010] to-[#4a0024] border-l-2 border-pink-500 z-50 transition-transform duration-[2s] ease-in-out shadow-[-5px_0_15px_rgba(0,0,0,0.8)]"></div>
+
+        <!-- Content inside Curtain -->
+        <div id="curtain-content" class="relative z-40 flex flex-col items-center justify-center opacity-0 transition-opacity duration-[1.5s] w-full px-4 text-center mt-10">
+            
+            <!-- Typing Text Container (2 Lines) -->
+            <div class="min-h-[120px] sm:min-h-[140px] flex flex-col items-center justify-center mb-6 w-full">
+                <h2 id="curtain-line-1" class="text-4xl md:text-6xl cursive-font text-white drop-shadow-lg tracking-wide neon-text m-0 mb-2"></h2>
+                <h2 id="curtain-line-2" class="text-4xl md:text-6xl cursive-font text-white drop-shadow-lg tracking-wide neon-text m-0"></h2>
+            </div>
+            
+            <!-- Premium Glowing Cake Image -->
+            <div class="relative w-40 h-40 sm:w-48 sm:h-48 mb-8 sparkle">
+                <div class="absolute inset-0 bg-pink-600 rounded-full blur-2xl opacity-50"></div>
+                <!-- Yahan parde ke andar cake photo lagayi gayi hai -->
+                <img src="cake.png" alt="Birthday Cake" class="w-full h-full object-contain relative z-10 drop-shadow-[0_5px_25px_rgba(255,20,147,0.9)]" onerror="this.src='https://placehold.co/300x300/110008/ff1493?text=Cake'" />
+            </div>
+
+            <button id="curtain-btn" onclick="window.goToStep(2)" class="glass-btn font-bold py-3 px-8 text-lg z-50 relative mt-2 opacity-0 transition-opacity duration-1000">
+              Abhi Aur Bhi Hai 😉
+            </button>
+        </div>
+    </div>
+
+    <!-- Step 2: Teaser -->
+    <div id="step-2" class="step w-full px-4">
+      <div class="glass-card p-8 md:p-12 text-center max-w-md mx-auto w-full">
+        <h2
+          class="text-2xl md:text-3xl font-semibold mb-6 text-white leading-tight glow-text"
+        >
+          Wait, aage badhne se pehle...
+        </h2>
+        <p class="text-lg text-pink-100 mb-8">
+          Meri Favourite Picture and Person dekhna hai? 😉
+        </p>
+        <button
+          onclick="window.goToStep(3)"
+          class="glass-btn font-bold py-3 px-8 text-lg w-full sm:w-auto"
+        >
+          Haan, dikhao!
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 3: Photo Reveal -->
+    <div id="step-3" class="step w-full px-4">
+      <div
+        class="text-center flex flex-col items-center w-full max-w-lg mx-auto"
+      >
+        <h2
+          class="text-3xl md:text-4xl cursive-font glow-text text-white mb-6 tracking-wide"
+        >
+          Dear Mini ji ✨
+        </h2>
+
+        <div class="relative group mb-8">
+          <!-- Dark Neon Photo Back Glow -->
+          <div
+            class="absolute -inset-4 bg-gradient-to-r from-pink-600 via-purple-600 to-pink-600 rounded-xl blur-lg opacity-80 animate-pulse"
+          ></div>
+          <img
+            src="pic39.jpeg"
+            alt="Meenakshi"
+            class="photo-frame"
+            onerror="
+              this.src =
+                'https://placehold.co/400x500/110008/ff1493?text=Yahan+Meenakshi+Ki+Photo+Hogi'
+            "
+          />
+        </div>
+
+        <p
+          class="text-lg md:text-xl mb-8 text-pink-50 font-medium drop-shadow-md"
+        >
+          Apki Khobbsurti Aaye Hayeeee Kanhi Jhol Mol na Ho Jaye😅❤️<br />Beautyfull girl ke liye
+          something crazy are you ready?
+        </p>
+        <button
+          onclick="window.startFinalCelebration()"
+          class="glass-btn font-bold py-3 px-8 text-lg"
+        >
+          Haan ji
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 4: Main Celebration (Responsive Fix) -->
+    <div id="step-4" class="step w-full max-w-[100vw] px-2 flex flex-col items-center justify-center relative overflow-hidden">
+      <h2
+        class="text-2xl sm:text-3xl md:text-4xl font-semibold uppercase tracking-widest text-pink-200 mb-2 drop-shadow-[0_0_10px_#ff1493] text-center w-full"
+      >
+        Happy Birthday
+      </h2>
+      <h1
+        id="meenakshi-name"
+        class="text-[12vw] sm:text-6xl md:text-8xl font-bold cursive-font neon-text mb-8 text-center break-words px-2 w-full min-h-[1.2em]"
+      >
+        <!-- Handled by typing script -->
+      </h1>
+
+      <div class="glass-card w-full max-w-[90vw] sm:max-w-md p-6 sm:p-8 mt-4 mx-auto">
+        <div
+          id="wish-container"
+          class="min-h-[100px] flex items-center justify-center w-full"
+        >
+          <p
+            id="wish-text"
+            class="text-lg sm:text-xl md:text-2xl font-medium text-white transition-opacity duration-500 text-center drop-shadow-[0_0_8px_rgba(255,20,147,0.8)]"
+          >
+            <!-- Handled by typing script -->
+          </p>
+        </div>
+        <div class="mt-6 flex justify-center space-x-2">
+          <div class="w-2 h-2 rounded-full bg-pink-500/50 dot shadow-[0_0_5px_#ff1493]"></div>
+          <div class="w-2 h-2 rounded-full bg-pink-500/50 dot shadow-[0_0_5px_#ff1493]"></div>
+          <div class="w-2 h-2 rounded-full bg-pink-500/50 dot shadow-[0_0_5px_#ff1493]"></div>
+          <div class="w-2 h-2 rounded-full bg-pink-500/50 dot shadow-[0_0_5px_#ff1493]"></div>
+          <div class="w-2 h-2 rounded-full bg-pink-500/50 dot shadow-[0_0_5px_#ff1493]"></div>
+        </div>
+      </div>
+
+      <div
+        id="gallery-prompt-1"
+        class="mt-10 opacity-0 fade-in w-full max-w-[90vw] sm:max-w-md mx-auto px-2 text-center"
+        style="animation-delay: 2s; animation-duration: 2s"
+      >
+        <p
+          class="text-lg sm:text-xl md:text-2xl text-pink-100 font-semibold mb-6 drop-shadow-[0_0_8px_rgba(255,20,147,0.6)] break-words"
+        >
+          boootttttiiiiiifooollllllll girl ke liye kuch hai mere pass bolo dikha
+          dun? 🫣
+        </p>
+        <div class="flex justify-center gap-4 sm:gap-6 flex-wrap">
+          <button onclick="window.goToGallery()" class="glass-btn font-bold py-3 px-8">
+            Haan 😍
+          </button>
+          <button
+            onclick="window.showAngryPrompt()"
+            class="glass-btn font-bold py-3 px-8"
+          >
+            Na 😒
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="gallery-prompt-2"
+        class="mt-8 hidden w-full max-w-[90vw] sm:max-w-md mx-auto text-center h-40 px-2 relative"
+      >
+        <p
+          class="text-lg sm:text-xl md:text-2xl text-pink-400 font-bold mb-6 drop-shadow-[0_0_10px_rgba(255,20,147,0.8)] break-words"
+        >
+          Gussa ho jaunga main 😡<br />Bolo dikhaun ki nahi?
+        </p>
+        <div class="flex justify-center gap-4 relative flex-wrap w-full">
+          <button
+            onclick="window.goToGallery()"
+            class="glass-btn font-bold py-2 px-4 sm:px-6 z-20 text-sm sm:text-base mx-auto"
+          >
+            Ha thik hai dikha do 🙄
+          </button>
+          <button
+            id="runaway-btn"
+            onmouseover="window.moveButton()"
+            ontouchstart="window.moveButton()"
+            onclick="window.moveButton()"
+            class="glass-btn !text-pink-300 font-bold py-2 px-6 sm:px-8 absolute z-30 transform-gpu text-sm sm:text-base border-pink-500 left-0 right-0 mx-auto w-max"
+          >
+            Na 🏃‍♀️
+          </button>
+        </div>
+
+        <img id="prank-bunny" src="image_4b9deb.png" class="absolute -bottom-20 left-0 w-24 h-24 z-50 transform translate-y-32 transition-transform duration-700 ease-out drop-shadow-[0_0_15px_rgba(255,20,147,0.8)]" alt="Judging Bunny" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <!-- Step 5: Memories Carousel Gallery -->
+    <div
+      id="step-5"
+      class="step w-full h-full px-4 sm:px-8 flex flex-col justify-center items-center"
+    >
+      <h2
+        class="text-4xl md:text-5xl font-bold cursive-font text-center glow-text text-white mb-6"
+      >
+        Happy Birthday Dear Mini Ji✨
+      </h2>
+
+      <div class="gallery-carousel-card touch-pan-y w-full" id="carousel-container">
+        <div
+          class="relative overflow-hidden rounded-xl bg-black/40 aspect-[4/5] shadow-[0_0_30px_rgba(0,0,0,0.8)] group border border-pink-600/30 w-full"
+        >
+          <img
+            id="carousel-img"
+            src="pic1.jpg"
+            alt="Memory"
+            class="w-full h-full object-cover transition-opacity duration-300"
+            onerror="
+              this.src =
+                'https://placehold.co/400x500/110008/ff1493?text=Photo+1'
+            "
+          />
+
+          <div class="absolute left-2 top-1/2 -translate-y-1/2 z-10">
+            <button onclick="window.prevPhoto()" class="glass-btn w-10 h-10 flex justify-center items-center text-xl !p-0">❮</button>
+          </div>
+          <div class="absolute right-2 top-1/2 -translate-y-1/2 z-10">
+            <button onclick="window.nextPhoto()" class="glass-btn w-10 h-10 flex justify-center items-center text-xl !p-0">❯</button>
+          </div>
+        </div>
+
+        <div class="h-auto flex flex-col items-center justify-center mt-5 mb-2 w-full">
+          <p
+            id="carousel-caption"
+            class="readable-caption text-center transition-opacity duration-300 min-h-[3.6rem] w-full"
+          >
+          </p>
+          <span
+            id="carousel-counter"
+            class="text-pink-200 font-semibold tracking-widest text-sm font-mono mt-2 bg-pink-900/40 px-4 py-1 rounded-full backdrop-blur-sm border border-pink-500/40 shadow-[0_0_10px_rgba(255,20,147,0.3)]"
+            >1 / 10</span
+          >
+        </div>
+
+        <p class="text-center text-pink-300/60 text-xs mt-1 animate-pulse w-full">
+          Face Pe Smile Banaye Rakhein Guys
+        </p>
+      </div>
+
+      <div class="mt-8 flex flex-col items-center gap-4 w-full max-w-sm px-4">
+        <button
+          onclick="window.goToStep(6)"
+          class="glass-btn w-full font-bold py-3 px-4 flex justify-center items-center gap-2 text-sm sm:text-base whitespace-normal break-words leading-tight text-center"
+        >
+          Aapke liye something crazyyyyyyyy 😜
+        </button>
+        <button
+          onclick="window.goToStep(4)"
+          class="glass-btn w-full max-w-[200px] font-semibold py-2 px-6 text-sm"
+        >
+          Wapas Piche Jao 🔙
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 6: Romantic & Premium Videos -->
+    <div id="step-6" class="step w-full h-full px-4 sm:px-8 scrollable-content">
+      <div class="max-w-lg mx-auto w-full">
+        <h2
+          class="text-4xl md:text-5xl font-bold cursive-font text-center glow-text text-white mb-2"
+        >
+          Special Moments 🎥
+        </h2>
+        <p
+          class="text-center text-pink-200/80 mb-10 text-xl font-['Caveat'] tracking-wide"
+        >
+          Kuch pal jo lafzon mein bayaan nahi hote... ✨
+        </p>
+
+        <div class="video-card">
+          <video
+            class="video-frame premium-video"
+            controls
+            poster="images/reel-cover.jpg"
+          >
+            <source src="vid2.mp4" type="video/mp4" />
+          </video>
+          <p id="vid-cap-1" class="readable-caption text-center mt-5 text-pink-50 min-h-[2.4rem] w-full"></p>
+        </div>
+
+        <div class="video-card">
+          <video
+            class="video-frame premium-video"
+            controls
+            poster="images/reel-cover.jpg"
+          >
+            <source src="vid1.mp4" type="video/mp4" />
+          </video>
+          <p id="vid-cap-2" class="readable-caption text-center mt-5 text-pink-50 min-h-[2.4rem] w-full"></p>
+        </div>
+
+         <div class="video-card">
+          <video
+            class="video-frame premium-video"
+            controls
+            poster="images/reel-cover.jpg"
+          >
+            <source src="vid1.mp4" type="video/mp4" />
+          </video>
+          <p id="vid-cap-3" class="readable-caption text-center mt-5 text-pink-50 min-h-[2.4rem] w-full"></p>
+        </div>
+
+        <div class="video-card">
+          <video
+            class="video-frame premium-video"
+            controls
+            poster="images/reel-cover.jpg"
+          >
+            <source src="vid4.mp4" type="video/mp4" />
+          </video>
+          <p id="vid-cap-4" class="readable-caption text-center mt-5 text-pink-50 min-h-[2.4rem] w-full"></p>
+        </div>
+
+        <div
+          class="mt-12 mb-8 text-center flex flex-col items-center gap-4 px-2"
+        >
+          <p
+            class="text-lg sm:text-xl md:text-2xl text-pink-200 font-semibold drop-shadow-[0_0_8px_rgba(255,20,147,0.6)] break-words"
+          >
+            aapke liye kuch aur bhi hai dikhaun 🙈
+          </p>
+          <button
+            onclick="window.goToStep(7)"
+            class="glass-btn font-bold py-3 px-10 text-lg"
+          >
+            Han ji ✨
+          </button>
+          <button
+            onclick="window.goToStep(5)"
+            class="glass-btn mt-6 font-semibold py-2 px-6 text-sm"
+          >
+            Wapas Yaadon Mein 🔙
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 7: Final Photo Section -->
+    <div
+      id="step-7"
+      class="step w-full h-full px-4 sm:px-8 scrollable-content flex flex-col items-center"
+    >
+      <div class="max-w-6xl mx-auto w-full text-center pb-10">
+        <h2
+          class="text-4xl md:text-5xl font-bold cursive-font text-center glow-text text-white mb-10 mt-4"
+        >
+          You are the Best! 💖
+        </h2>
+
+        <!-- 15 Portrait Images Grid Dark Theme -->
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-5 place-items-stretch text-left w-full"
+        >
+          <div class="collage-card aspect-[4/5]">
+            <img
+              src="pic12.jpg"
+              alt="Collage 1"
+              class="collage-img"
+              onerror="
+                this.src =
+                  'https://placehold.co/400x500/110008/ff1493?text=Pic+11'
+              "
+            />
+            <div class="collage-overlay">
+              <span class="readable-caption text-white text-2xl"
+                >Priceless ✨</span
+              >
+            </div>
+          </div>
+          <div class="collage-card aspect-[4/5]">
+            <img
+              src="pic11.jpg"
+              alt="Collage 2"
+              class="collage-img"
+              onerror="
+                this.src =
+                  'https://placehold.co/400x500/110008/ff69b4?text=Pic+12'
+              "
+            />
+          </div>
+          <div class="collage-card aspect-[4/5]">
+            <img
+              src="pic7.jpg"
+              alt="Collage 3"
+              class="collage-img"
+              onerror="
+                this.src =
+                  'https://placehold.co/400x500/110008/da70d6?text=Pic+13'
+              "
+            />
+            <div class="collage-overlay">
+              <span class="readable-caption text-white text-2xl"
+                >Gorgeous 🌸</span
+              >
+            </div>
+          </div>
+          <div class="collage-card aspect-[4/5]">
+            <img
+              src="pic14.jpg"
+              alt="Collage 4"
+              class="collage-img"
+              onerror="
+                this.src =
+                  'https://placehold.co/400x500/110008/ff1493?text=Pic+14'
+              "
+            />
+          </div>
+          <div class="collage-card aspect-[4/5]">
+            <img
+              src="pic35.jpg"
+              alt="Collage 5"
+              class="collage-img"
+              onerror="
+                this.src =
+                  'https://placehold.co/400x500/110008/ff69b4?text=Pic+15'
+              "
+            />
+            <div class="collage-overlay">
+              <span class="readable-caption text-white text-2xl"
+                >Herooo😅😅</span
+              >
+            </div>
+          </div>
+          <div class="collage-card aspect-[4/5]">
+            <img
+              src="pic16.jpg"
+              alt="Collage 6"
+              class="collage-img"
+              onerror="
+                this.src =
+                  'https://placehold.co/400x500/110008/da70d6?text=Pic+16'
+              "
+            />
+          </div>
+          <div class="collage-card aspect-[4/5]">
+            <img
+              src="pic17.jpeg"
+              alt="Collage 7"
+              class="collage-img"
+              onerror="
+                this.src =
+                  'https://placehold.co/400x500/110008/ff1493?text=Pic+17'
+              "
+            />
+            <div class="collage-overlay">
+              <span class="readable-caption text-white text-2xl">Cutie 🥰</span>
+            </div>
+          </div>
+          <div class="collage-card aspect-[4/5]">
+            <img
+              src="pic18.jpeg"
+              alt="Collage 8"
+              class="collage-img"
+              onerror="
+                this.src =
+                  'https://placehold.co/400x500/110008/ff69b4?text=Pic+18'
+              "
+            />
+          </div>
+          <div class="collage-card aspect-[4/5]">
+            <img
+              src="pic19.jpeg"
+              alt="Collage 9"
+              class="collage-img"
+              onerror="
+                this.src =
+                  'https://placehold.co/400x500/110008/da70d6?text=Pic+19'
+              "
+            />
+            <div class="collage-overlay">
+              <span class="readable-caption text-white text-2xl">Vibes 💫</span>
+            </div>
+          </div>
+          <div class="collage-card aspect-[4/5]">
+            <img
+              src="pic8.jpg"
+              alt="Collage 10"
+              class="collage-img"
+              onerror="
+                this.src =
+                  'https://placehold.co/400x500/110008/ff1493?text=Pic+20'
+              "
+            />
+          </div>
+          <div class="collage-card aspect-[4/5]">
+            <img
+              src="pic21.jpeg"
+              alt="Collage 11"
+              class="collage-img"
+              onerror="
+                this.src =
+                  'https://placehold.co/400x500/110008/ff69b4?text=Pic+21'
+              "
+            />
+            <div class="collage-overlay">
+              <span class="readable-caption text-white text-2xl">Apki Julfeinnnnn</span>
+            </div>
+          </div>
+          <div class="collage-card aspect-[4/5]">
+            <img
+              src="pic22.jpeg"
+              alt="Collage 12"
+              class="collage-img"
+              onerror="
+                this.src =
+                  'https://placehold.co/400x500/110008/da70d6?text=Pic+22'
+              "
+            />
+          </div>
+          <div class="collage-card aspect-[4/5]">
+            <img
+              src="pic34.jpg"
+              alt="Collage 13"
+              class="collage-img"
+              onerror="
+                this.src =
+                  'https://placehold.co/400x500/110008/ff1493?text=Pic+23'
+              "
+            />
+            <div class="collage-overlay">
+              <span class="readable-caption text-white text-2xl"
+                >Memories 📸</span
+              >
+            </div>
+          </div>
+          <div class="collage-card aspect-[4/5]">
+            <img
+              src="pic24.jpeg"
+              alt="Collage 14"
+              class="collage-img"
+              onerror="
+                this.src =
+                  'https://placehold.co/400x500/110008/ff69b4?text=Pic+24'
+              "
+            />
+          </div>
+          <div class="collage-card aspect-[4/5]">
+            <img
+              src="pic37.jpg"
+              alt="Collage 15"
+              class="collage-img"
+              onerror="
+                this.src =
+                  'https://placehold.co/400x500/110008/da70d6?text=Pic+25'
+              "
+            />
+            <div class="collage-overlay">
+              <span class="readable-caption text-white text-2xl"
+                >Simplicity💖</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <p
+          class="readable-caption text-center mt-10 text-pink-200 text-3xl drop-shadow-[0_0_10px_rgba(255,20,147,0.8)] animate-pulse"
+        >
+          Appko Photos Pasand Aur Mujhe Photos Main Aap😏🥰✨
+        </p>
+
+        <div
+          class="mt-12 mb-8 text-center flex flex-col items-center gap-4 px-2 w-full"
+        >
+          <p
+            class="text-lg sm:text-xl md:text-2xl text-pink-200 font-semibold drop-shadow-md break-words"
+          >
+            connection dekho guys 👀
+          </p>
+          <button
+            onclick="window.goToStep(8)"
+            class="glass-btn font-bold py-3 px-10 text-lg"
+          >
+            Han ji ✨
+          </button>
+          <button
+            onclick="window.goToStep(6)"
+            class="glass-btn mt-6 font-semibold py-2 px-6 text-sm"
+          >
+            Wapas Videos Pe 🔙
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 8: Cute Baby Anvi Section -->
+    <div
+      id="step-8"
+      class="step w-full h-full px-4 sm:px-8 flex flex-col justify-center items-center"
+    >
+      <div class="max-w-lg mx-auto w-full text-center">
+        <h2
+          class="text-3xl md:text-5xl font-bold cursive-font text-center glow-text text-white mb-8 leading-tight"
+        >
+          Surprise! For Modern Mumma 🎀
+        </h2>
+        <div
+          class="relative group mb-8 mx-auto w-full max-w-[250px] sm:max-w-[300px]"
+        >
+          <div
+            class="absolute -inset-2 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full blur-xl opacity-80 animate-pulse"
+          ></div>
+          <img
+            src="baby_anvi.png"
+            alt="Baby Anvi"
+            class="relative w-full aspect-square object-cover rounded-full border-4 border-pink-400 shadow-[0_0_30px_rgba(255,20,147,0.6)]"
+            onerror="
+              this.src =
+                'https://placehold.co/400x400/110008/ff1493?text=Baby+Anvi'
+            "
+          />
+        </div>
+        
+        <div class="min-h-[120px] flex flex-col items-center justify-center w-full">
+            <p
+            class="text-xl sm:text-2xl md:text-3xl text-white font-semibold drop-shadow-[0_0_10px_rgba(255,20,147,0.5)] leading-relaxed font-['Caveat'] w-full"
+            >
+            <span id="baby-text-1"></span><span id="baby-text-2" class="text-pink-400 font-bold text-3xl sm:text-4xl drop-shadow-[0_0_10px_#ff1493]"></span><span id="baby-text-3"></span>
+            </p>
+            <p id="baby-text-4" class="glow-text text-3xl sm:text-4xl mt-4 block font-semibold font-['Caveat'] w-full"></p>
+        </div>
+
+        <div class="mt-12 text-center w-full">
+          <button
+            onclick="window.goToStep(7)"
+            class="glass-btn font-semibold py-2 px-6 text-sm"
+          >
+            Wapas ja sakti ho 🔙
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const wishes = [
+        "Dear Mini Ji Janamdin ki bohot bohot badhaiyan! 🎉",
+        "Aapki har khwahish puri ho, aur chehre par hamesha aesi hi smile rahe. ✨",
+        "Shiv ji Apko Hamesha Beautiful aur Happy Rakhe You Are Very Special For Me! 💖",
+        "I Wish Apka aane wala har din Aapke jaisa hi beautyfull ho. 🌸",
+        "Let's celebrate YOU today! Have a blast Mini ji! 🎂🥂",
+      ];
+      let currentWishIndex = 0;
+      let wishTimeout;
+      let typingTimeouts = {};
+
+      // GLOBAL FUNCTIONS FOR INLINE ONCLICK HANDLERS
+      window.goToStep = function(stepNumber) {
+        document.querySelectorAll(".step").forEach((el) => el.classList.remove("active"));
+
+        let stepId = `step-${stepNumber}`;
+        if (stepNumber === 'curtain') stepId = 'step-curtain';
+
+        const targetStep = document.getElementById(stepId);
+        if (targetStep) targetStep.classList.add("active");
+
+        const bgHeartsLayer = document.getElementById("bg-hearts-layer");
+        if (stepNumber === "1-5" || stepNumber === 2 || stepNumber === 3) {
+          bgHeartsLayer.style.opacity = "1";
+          startBackgroundHearts();
+        } else {
+          bgHeartsLayer.style.opacity = "0";
+        }
+
+        if (stepNumber === 6) {
+          startVideoTyping();
+        } else if (stepNumber === 8) {
+          startBabyTyping();
+        }
+      };
+
+      window.openNewCard = function() {
+        const card = document.getElementById("greeting-card");
+        const cover = document.getElementById("greeting-cover");
+
+        if (!card.classList.contains("open")) {
+          card.classList.add("open");
+
+          const isMobile = window.innerWidth < 640;
+          cover.style.transform = "rotateY(-160deg)";
+          
+          // SMART MOBILE CENTERING FIX (Will auto adjust scale based on screen width so it perfectly fits)
+          const dynamicScale = isMobile ? (window.innerWidth / 620) : 0.9;
+          card.style.transform = `translateX(50%) scale(${dynamicScale})`;
+          card.style.boxShadow = "0 30px 60px rgba(0,0,0,0.8)";
+
+          setTimeout(() => {
+            const btnContainer = document.getElementById("step-1-5-btn-container");
+            if (btnContainer) {
+              btnContainer.style.opacity = "1";
+              btnContainer.style.pointerEvents = "auto";
+            }
+          }, 1000);
+        }
+      };
+
+      window.turnPage = function(event) {
+        event.stopPropagation();
+        const page1 = document.getElementById("msg-page-1");
+        const page2 = document.getElementById("msg-page-2");
+        const nextPageBtn = document.getElementById("book-next-page-btn");
+        const nextStepBtn = document.getElementById("book-next-step-btn");
+
+        page1.style.transform = "translateX(-100%)";
+        page1.style.opacity = "0";
+        page1.style.pointerEvents = "none";
+
+        page2.style.transform = "translateX(0)";
+        page2.style.opacity = "1";
+        page2.style.pointerEvents = "auto";
+
+        nextPageBtn.classList.add("hidden");
+        nextStepBtn.classList.remove("hidden");
+      };
+      
+      function typeWriter(elementId, text, speed, callback) {
+          if (typingTimeouts[elementId]) {
+              clearTimeout(typingTimeouts[elementId]);
+          }
+          
+          let i = 0;
+          let el = document.getElementById(elementId);
+          if(!el) return;
+          
+          el.innerHTML = "";
+          el.classList.add('typing-cursor');
+          let chars = Array.from(text);
+          
+          function type() {
+              if (i < chars.length) {
+                  el.innerHTML += chars[i];
+                  i++;
+                  typingTimeouts[elementId] = setTimeout(type, speed);
+              } else {
+                  el.classList.remove('typing-cursor');
+                  if (callback) callback();
+              }
+          }
+          type();
+      }
+
+      window.openCurtainStep = function() {
+        window.goToStep('curtain');
+        setTimeout(() => {
+            document.getElementById('left-curtain').style.transform = 'translateX(-100%)';
+            document.getElementById('right-curtain').style.transform = 'translateX(100%)';
+            startCanvasFireworks();
+            setTimeout(() => {
+                document.getElementById('curtain-content').style.opacity = '1';
+                setTimeout(() => {
+                    typeWriter('curtain-line-1', "Happy Birthday", 80, () => {
+                        typeWriter('curtain-line-2', "Dear Mini Ji", 80, () => {
+                            document.getElementById('curtain-btn').classList.remove('opacity-0');
+                        });
+                    });
+                }, 400);
+            }, 1000);
+        }, 500);
+      };
+
+      let hasVideoTyped = false;
+      function startVideoTyping() {
+        if(hasVideoTyped) return;
+        hasVideoTyped = true;
+        document.getElementById('vid-cap-1').innerHTML = "";
+        document.getElementById('vid-cap-2').innerHTML = "";
+        document.getElementById('vid-cap-3').innerHTML = "";
+        document.getElementById('vid-cap-4').innerHTML = "";
+        setTimeout(() => {
+            typeWriter('vid-cap-1', "Itni pyari hasi hai dil karta hai bas dekhte hi rahein✨💖", 40);
+            typeWriter('vid-cap-2', "Duniya ki sabse cute dramebaaz!🌸🥰", 40);
+            typeWriter('vid-cap-3', "Apke Sabse Special And Pricelss Momemnt", 40);
+            typeWriter('vid-cap-4', "Apka Bachpna 🤌😍😅", 40);
+        }, 500);
+      }
+
+      let hasBabyTyped = false;
+      function startBabyTyping() {
+        if(hasBabyTyped) return;
+        hasBabyTyped = true;
+        document.getElementById('baby-text-1').innerHTML = "";
+        document.getElementById('baby-text-2').innerHTML = "";
+        document.getElementById('baby-text-3').innerHTML = "";
+        document.getElementById('baby-text-4').innerHTML = "";
+        setTimeout(() => {
+            typeWriter('baby-text-1', "Aapke jesi cute beautifull pyari si ", 50, () => {
+                typeWriter('baby-text-2', "Anvi", 80, () => {
+                    typeWriter('baby-text-3', " ki taraf se aapko...", 50, () => {
+                        typeWriter('baby-text-4', "Happy Birthday! 🤣🎂❤️", 60);
+                    });
+                });
+            });
+        }, 500);
+      }
+
+      function startCanvasFireworks() {
+        const canvas = document.getElementById("fireworks-canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        let particles = [];
+        const colors = ["#ff1493", "#ff69b4", "#ffd700", "#ff007f", "#00ffff"];
+
+        function createExplosion(x, y) {
+            for (let i = 0; i < 50; i++) {
+                particles.push({
+                    x: x,
+                    y: y,
+                    vx: (Math.random() - 0.5) * 8,
+                    vy: (Math.random() - 0.5) * 8,
+                    life: 1,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    size: Math.random() * 3 + 1
+                });
+            }
+        }
+
+        function animateFireworks() {
+            if(document.getElementById('step-curtain').classList.contains('active')) {
+                requestAnimationFrame(animateFireworks);
+            }
+            ctx.fillStyle = "rgba(7, 0, 5, 0.2)"; 
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            if (Math.random() < 0.05) { 
+                createExplosion(Math.random() * canvas.width, Math.random() * (canvas.height/2));
+            }
+            for (let i = particles.length - 1; i >= 0; i--) {
+                let p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += 0.05; 
+                p.life -= 0.01;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = p.life;
+                ctx.fill();
+                ctx.globalAlpha = 1;
+                if (p.life <= 0) particles.splice(i, 1);
+            }
+        }
+        animateFireworks();
+      }
+
+      let bgHeartsInterval = null;
+      function startBackgroundHearts() {
+        const layer = document.getElementById("bg-hearts-layer");
+        if (layer.dataset.active === "true") return;
+        layer.dataset.active = "true";
+        const bgColors = ["#ff1493", "#ff69b4", "#c71585", "#db7093", "#ff007f"];
+        for (let i = 0; i < 15; i++) createBgHeart(bgColors, layer, true);
+        bgHeartsInterval = setInterval(() => {
+          if (layer.style.opacity === "1") {
+            createBgHeart(bgColors, layer, false);
+            createBgHeart(bgColors, layer, false);
+          }
+        }, 800);
+      }
+
+      function createBgHeart(colors, container, isInitial = false) {
+        const wrapper = document.createElement("div");
+        wrapper.classList.add("heart-container");
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        wrapper.style.left = Math.random() * 100 + "vw";
+        wrapper.style.setProperty("--scale", Math.random() * 0.4 + 0.2);
+        wrapper.style.setProperty("--start-opacity", "0.4");
+        wrapper.style.setProperty("--mid-opacity", "0.6");
+        const duration = Math.random() * 8 + 6;
+        wrapper.style.animationDuration = duration + "s";
+        if (isInitial) wrapper.style.animationDelay = `-${Math.random() * duration}s`;
+        wrapper.appendChild(heart);
+        container.appendChild(wrapper);
+        setTimeout(() => wrapper.remove(), duration * 1000);
+      }
+
+      window.startFinalCelebration = function() {
+        window.goToStep(4);
+        setTimeout(() => {
+          startConfetti();
+          startHearts();
+          const nameEl = document.getElementById("meenakshi-name");
+          nameEl.innerHTML = "";
+          typeWriter("meenakshi-name", "Meenakshi!", 120, () => {
+             startWishCycle();
+          });
+        }, 600);
+      };
+
+      function startWishCycle() {
+        const wishTextElement = document.getElementById("wish-text");
+        const dots = document.querySelectorAll(".dot");
+        currentWishIndex = 0;
+        clearTimeout(wishTimeout);
+        function typeNextWish() {
+            updateDots(currentWishIndex % dots.length);
+            wishTextElement.style.opacity = "1";
+            wishTextElement.innerHTML = "";
+            typeWriter("wish-text", wishes[currentWishIndex], 50, () => {
+                wishTimeout = setTimeout(() => {
+                    wishTextElement.style.opacity = "0";
+                    setTimeout(() => {
+                        currentWishIndex = (currentWishIndex + 1) % wishes.length;
+                        typeNextWish();
+                    }, 500);
+                }, 2500); 
+            });
+        }
+        typeNextWish();
+      }
+
+      function updateDots(activeIndex) {
+        const dots = document.querySelectorAll(".dot");
+        dots.forEach((dot, index) => {
+          if (index === activeIndex) {
+            dot.classList.remove("bg-pink-500/50");
+            dot.classList.add("bg-pink-400");
+          } else {
+            dot.classList.add("bg-pink-500/50");
+            dot.classList.remove("bg-pink-400");
+          }
+        });
+      }
+
+      function startConfetti() {
+        const colors = ["#ff1493", "#ff69b4", "#ffd700", "#ff007f", "#c71585"];
+        for (let i = 0; i < 100; i++) createConfettiPiece(colors);
+        setInterval(() => createConfettiPiece(colors), 300);
+      }
+
+      function createConfettiPiece(colors) {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        const duration = Math.random() * 3 + 2;
+        confetti.style.animationDuration = duration + "s";
+        if (Math.random() > 0.5) confetti.style.borderRadius = "50%";
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), duration * 1000);
+      }
+
+      function startHearts() {
+        const heartColors = ["#ff1493", "#ff69b4", "#ff007f", "#c71585", "#ffb6c1"];
+        for (let i = 0; i < 70; i++) createHeart(heartColors, true);
+        setInterval(() => {
+          createHeart(heartColors, false);
+          createHeart(heartColors, false);
+          createHeart(heartColors, false);
+        }, 500);
+      }
+
+      function createHeart(colors, isInitial = false) {
+        const container = document.createElement("div");
+        container.classList.add("heart-container");
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        container.style.left = Math.random() * 100 + "vw";
+        container.style.setProperty("--scale", Math.random() * 0.7 + 0.3);
+        container.style.setProperty("--start-opacity", "0.8");
+        container.style.setProperty("--mid-opacity", "0.8");
+        const duration = Math.random() * 7 + 5;
+        container.style.animationDuration = duration + "s";
+        if (isInitial) container.style.animationDelay = `-${Math.random() * duration}s`;
+        if (Math.random() > 0.6) {
+          container.style.filter = `blur(${Math.random() * 3 + 1}px)`;
+          container.style.zIndex = 3;
+        } else {
+          container.style.zIndex = 5;
+        }
+        container.appendChild(heart);
+        document.body.appendChild(container);
+        setTimeout(() => container.remove(), duration * 1000);
+      }
+
+      window.showAngryPrompt = function() {
+        document.getElementById("gallery-prompt-1").classList.add("hidden");
+        document.getElementById("gallery-prompt-2").classList.remove("hidden");
+        document.getElementById("gallery-prompt-2").classList.add("block");
+        const bunny = document.getElementById('prank-bunny');
+        if(bunny) bunny.style.transform = 'translateY(0) rotate(15deg)';
+      };
+
+      window.moveButton = function() {
+        const btn = document.getElementById("runaway-btn");
+        const isMobile = window.innerWidth < 600;
+        const limitX = isMobile ? 80 : 200;
+        const limitY = isMobile ? 60 : 150;
+        const xAmount = (Math.random() - 0.5) * limitX;
+        const yAmount = (Math.random() - 0.5) * limitY;
+        btn.style.transform = `translate(${xAmount}px, ${yAmount}px)`;
+      };
+
+      const memories = [
+        { img: "pic1.jpg", text: "aapki simplicity hi aapki sabse badi khoobsurti hai 💫! 💕" },
+        { img: "pic32.png", text: "aapki hasi kisi bhi din ko perfect bana deti hai 😊" },
+        { img: "pic3.jpg", text: "sach batao… itni pyari hone ka license kahan se liya? 😉" },
+        { img: "pic4.png", text: "Shiv Ji apko Hamehsa Boootttiiifffuulll rakhein❤️" },
+        { img: "pic5.png", text: "aapko dekhne ke baad toh crush word bhi chhota lagne lagta hai 😏" },
+        { img: "pic21.jpeg", text: "Apki Jelfeinnnnn Aye Hayeeeee Flat Ho Gya Main😂" },
+        { img: "pic31.png", text: "Some people are beautiful but Mini ji is just something else 💖✨" },
+        { img: "eyes2.png", text: "Chehre pe makeup se jada sar par bindi pasand hai mujhe💖" },
+        { img: "pic15.jpg", text: "🌸Duniya ki sabse pyari aur dramebaaz ladki. 👑" },
+        { img: "pic16.jpg", text: "aap sirf khoobsurat nahi ho aap woh ehsaas ho jo dil ko sukoon de 💖" },
+      ];
+      let currentPhotoIndex = 0;
+
+      window.goToGallery = function() {
+        window.goToStep(5);
+        updateCarouselContent();
+      };
+
+      function updateCarouselContent() {
+        const imgEl = document.getElementById("carousel-img");
+        const captionEl = document.getElementById("carousel-caption");
+        const counterEl = document.getElementById("carousel-counter");
+        
+        imgEl.style.opacity = "0.4";
+        captionEl.style.opacity = "0"; 
+        
+        setTimeout(() => {
+          imgEl.src = memories[currentPhotoIndex].img;
+          imgEl.onerror = function () {
+            this.src = `https://placehold.co/400x500/110008/ff1493?text=Photo+${currentPhotoIndex + 1}`;
+          };
+          
+          counterEl.innerText = `${currentPhotoIndex + 1} / ${memories.length}`;
+          imgEl.style.opacity = "1";
+          captionEl.style.opacity = "1";
+          
+          typeWriter("carousel-caption", memories[currentPhotoIndex].text, 40);
+        }, 250);
+      }
+
+      window.nextPhoto = function() {
+        currentPhotoIndex = (currentPhotoIndex + 1) % memories.length;
+        updateCarouselContent();
+      };
+      
+      window.prevPhoto = function() {
+        currentPhotoIndex = (currentPhotoIndex - 1 + memories.length) % memories.length;
+        updateCarouselContent();
+      };
+
+      let touchstartX = 0;
+      let touchendX = 0;
+      document.addEventListener("DOMContentLoaded", () => {
+        startIntroDecorations();
+
+        const carousel = document.getElementById("carousel-container");
+        if (carousel) {
+          carousel.addEventListener("touchstart", (e) => { touchstartX = e.changedTouches[0].screenX; }, { passive: true });
+          carousel.addEventListener("touchend", (e) => { touchendX = e.changedTouches[0].screenX; handleSwipeGesture(); }, { passive: true });
+        }
+
+        const videos = document.querySelectorAll(".premium-video");
+        videos.forEach((video) => {
+          video.addEventListener("play", function () {
+            videos.forEach((v) => { if (v !== this) v.pause(); });
+          });
+        });
+      });
+
+      function startIntroDecorations() {
+        const decorContainer = document.getElementById("step-1");
+        const bowSVG = `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 12C9 8 3 5 2 10C1 14 8 13 11 13.5C8 14 1 13 2 17C3 22 9 19 12 15C15 19 21 22 22 17C23 13 16 14 13 13.5C16 13 23 14 22 10C21 5 15 8 12 12Z" fill="#ff1493" opacity="0.8"/><path d="M11 14 L7 23 L10 23 L10 23 L12 15 Z" fill="#ff1493" opacity="0.7"/><path d="M13 14 L17 23 L14 23 L12 15 Z" fill="#ff1493" opacity="0.7"/><circle cx="12" cy="13" r="2" fill="#ff69b4"/></svg>`;
+        const flowerSVG = `<svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C10.5 2 9.5 3.5 10 5L10.5 6.5L9 6C7.5 5.5 6 6.5 6.5 8L7.5 9.5L6 10.5C4.5 11 4.5 13 6 13.5L7.5 14.5L6.5 16C6 17.5 7.5 18.5 9 18L10.5 17.5L10 19C9.5 20.5 11 22 12 22C13 22 14.5 20.5 14 19L13.5 17.5L15 18C16.5 18.5 18 17.5 17.5 16L16.5 14.5L18 13.5C19.5 13 19.5 11 18 10.5L16.5 9.5L17.5 8C18 6.5 16.5 5.5 15 6L13.5 6.5L14 5C14.5 3.5 13.5 2 12 2Z" fill="#ff69b4"/><circle cx="12" cy="12" r="3" fill="#ffffff"/></svg>`;
+        const items = [bowSVG, flowerSVG];
+
+        for (let i = 0; i < 22; i++) createIntroItem(decorContainer, items, true);
+        setInterval(() => {
+          if (decorContainer.classList.contains("active")) {
+            createIntroItem(decorContainer, items, false);
+          }
+        }, 800);
+      }
+
+      function createIntroItem(container, items, isInitial) {
+        const item = document.createElement("div");
+        item.classList.add("intro-decor");
+        item.innerHTML = items[Math.floor(Math.random() * items.length)];
+        item.style.left = Math.random() * 100 + "%";
+        const duration = Math.random() * 10 + 10;
+        let remainingTime = duration;
+        item.style.animationDuration = duration + "s";
+        if (isInitial) {
+          const delay = Math.random() * duration;
+          item.style.animationDelay = `-${delay}s`;
+          remainingTime = duration - delay;
+        }
+        item.style.transform = `scale(${Math.random() * 0.8 + 0.6})`;
+        container.appendChild(item);
+        setTimeout(() => { if (item.parentNode) item.parentNode.removeChild(item); }, remainingTime * 1000);
+      }
+
+      function handleSwipeGesture() {
+        if (touchendX < touchstartX - 50) window.nextPhoto();
+        if (touchendX > touchstartX + 50) window.prevPhoto();
+      }
+    </script>
+  </body>
+</html>
