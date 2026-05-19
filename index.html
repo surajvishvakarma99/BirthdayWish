@@ -24,6 +24,12 @@
         color: white;
         touch-action: manipulation;
         box-sizing: border-box;
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
       }
 
       /* Premium Dark Neon Background */
@@ -197,15 +203,6 @@
         box-shadow: 0 0 10px rgba(255, 20, 147, 0.4);
       }
 
-      /* Funny Animations */
-      @keyframes wiggle {
-        0%, 100% { transform: rotate(-5deg); }
-        50% { transform: rotate(5deg); }
-      }
-      .animate-wiggle {
-        animation: wiggle 3s ease-in-out infinite;
-      }
-
       /* Steps (Responsive & Centered) */
       .step {
         position: absolute;
@@ -219,9 +216,10 @@
         transform: scale(0.95) translateY(20px);
         transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 10;
-        width: 100vw;
+        width: 100%;
         max-width: 100vw;
         overflow-x: hidden;
+        box-sizing: border-box;
       }
       .step.active {
         opacity: 1;
@@ -232,15 +230,28 @@
 
       /* --- Dark Mode 3D Greeting Card Styles --- */
       .perspective-container {
-        perspective: 2000px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        perspective: 1200px;
+        overflow-x: hidden;
       }
       .card-wrapper {
+        width: 280px;
+        height: 420px;
         transform-style: preserve-3d;
         transition: transform 1.2s cubic-bezier(0.68, -0.15, 0.265, 1.15);
         animation: float 4s ease-in-out infinite;
+        margin: 0 auto;
+        flex-shrink: 0;
+        position: relative;
+        left: auto;
+        right: auto;
       }
       .card-wrapper.open {
         animation: none;
+        /* No translateX — stay centered via parent flex */
       }
       @keyframes float {
         0% { transform: translateY(0px) rotateX(2deg) rotateY(-2deg); filter: drop-shadow(0 15px 25px rgba(255,20,147,0.2)); }
@@ -263,7 +274,6 @@
         width: 100%;
         height: 100%;
       }
-      /* Dark Neon Card Cover */
       .cover-front {
         background: linear-gradient(135deg, #240010 0%, #0a0005 100%);
         border-left: 2px solid #ff1493;
@@ -345,10 +355,6 @@
         width: 100%;
         max-width: 360px;
         margin: 0 auto;
-      }
-
-      #runaway-btn {
-        transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
       }
 
       .video-card {
@@ -454,71 +460,23 @@
       }
 
       /* ════════════════════════════════════════════════
-         ✅ MASTER RESPONSIVE FIX — V2
-         5 specific issues addressed:
-         1. Greeting Card centering
-         2. Buttons height/layout
-         3. Curtain full-width fix
-         4. Curtain buttons alignment
-         5. Haan/Na section center alignment
+         ✅ MASTER RESPONSIVE FIX — MOBILE CENTERED
          ════════════════════════════════════════════════ */
 
-      /* --- Global Reset --- */
-      *, *::before, *::after {
-        box-sizing: border-box;
-      }
-      html, body {
-        overflow-x: hidden;
-        max-width: 100vw;
-      }
-      img, video {
-        max-width: 100%;
-        height: auto;
-        display: block;
-      }
-
-      /* --- Step Base --- */
-      .step {
-        overflow-x: hidden;
-        max-width: 100vw;
-      }
-
-      /* ─────────────────────────────────────────
-         FIX 1: GREETING CARD — Center Alignment
-         Problem: card chipak rahi thi left side
-         Root cause: step-1-5 mein `flex` missing tha
-         CSS fallback: explicit centering
-         ───────────────────────────────────────── */
+      /* GREETING CARD CENTER ALIGNMENT */
       #step-1-5 {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
         width: 100% !important;
+        max-width: 100vw !important;
         padding-left: 16px !important;
         padding-right: 16px !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
       }
 
-      /* Greeting card — fixed width, centered */
-      #greeting-card {
-        /* Fixed pixel sizes se avoid karo — use vw */
-        width: min(300px, calc(100vw - 48px)) !important;
-        height: min(450px, 70dvh) !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        flex-shrink: 0;
-      }
-
-      /* Perspective container — always centered */
-      .perspective-container {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        perspective: 1200px;
-      }
-
-      /* Step-1.5 heading */
       #step-1-5 > h2 {
         text-align: center;
         width: 100%;
@@ -526,43 +484,63 @@
         z-index: 10;
       }
 
-      /* ─────────────────────────────────────────
-         FIX 2: BUTTONS BELOW GREETING CARD
-         Problem: height badh rahi thi, layout inconsistent
-         Fix: consistent height, auto sizing, proper gap
-         ───────────────────────────────────────── */
+      /* BUTTONS BELOW GREETING CARD - Stable Layout */
       #step-1-5-btn-container {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: 12px !important;
         width: 100% !important;
         padding: 0 16px !important;
-        margin-top: 20px !important;
+        margin-top: 24px !important;
+        min-height: 50px !important;
       }
 
-      #book-next-page-btn,
-      #book-next-step-btn {
+      #book-next-page-btn {
         height: auto !important;
-        min-height: 44px !important;
-        padding: 10px 32px !important;
-        width: auto !important;
-        min-width: 180px !important;
+        min-height: 48px !important;
+        padding: 12px 32px !important;
+        width: 100% !important;
         max-width: 280px !important;
         font-size: 1rem !important;
-        line-height: 1.4 !important;
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
         white-space: nowrap !important;
+        margin: 0 auto !important;
+        text-align: center !important;
       }
 
-      /* ─────────────────────────────────────────
-         FIX 3: CURTAIN SECTION — Full Width
-         Problem: side mein extra space, layout break
-         Fix: px-0, no margin, full inset curtains
-         ───────────────────────────────────────── */
+      /* STEP 4: STRICT CENTER ALIGNMENT */
+      #step-4 {
+        padding: 0 16px !important;
+        text-align: center !important;
+      }
+      
+      #step-4 h2, 
+      #step-4 h1, 
+      #step-4 .glass-card, 
+      #gallery-prompt-1 {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+        max-width: 100% !important;
+      }
+
+      #gallery-prompt-1 .flex {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 16px !important;
+        width: 100% !important;
+      }
+
+      #gallery-prompt-1 button {
+        min-width: 120px !important;
+      }
+
+      /* CURTAIN SECTION: Full Width Fixed */
       #step-curtain {
         padding: 0 !important;
         margin: 0 !important;
@@ -583,15 +561,6 @@
       #left-curtain  { left: 0  !important; }
       #right-curtain { right: 0 !important; }
 
-      /* Canvas fills exactly */
-      #fireworks-canvas {
-        position: absolute !important;
-        inset: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-      }
-
-      /* Curtain content — vertically & horizontally centered, full height */
       #curtain-content {
         position: relative !important;
         z-index: 40 !important;
@@ -599,320 +568,62 @@
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        width: 100% !important;
-        height: 100% !important;
-        min-height: 100dvh !important;
-        padding: 24px 20px !important;
-        text-align: center !important;
+        width: 100vw !important;
+        height: 100dvh !important;
+        padding: 20px !important;
         margin: 0 !important;
       }
 
-      /* Curtain text lines — no overflow */
       #curtain-line-1,
       #curtain-line-2 {
         width: 100%;
         text-align: center;
         word-break: break-word;
-        overflow-wrap: break-word;
       }
 
-      /* ─────────────────────────────────────────
-         FIX 4: BUTTONS BELOW CURTAIN
-         Problem: alignment & spacing issue
-         Fix: flexbox centered, consistent padding
-         ───────────────────────────────────────── */
-      #curtain-btn {
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        min-height: 48px !important;
-        padding: 12px 32px !important;
-        font-size: 1.05rem !important;
-        margin-top: 16px !important;
-        width: auto !important;
-        max-width: 90vw !important;
-      }
-
-      /* ─────────────────────────────────────────
-         FIX 5: HAAN / NA SECTION — Center Alignment
-         Problem: left shift ho raha tha mobile pe
-         Fix: explicit centering, auto margins
-         ───────────────────────────────────────── */
-      #gallery-prompt-1,
-      #gallery-prompt-2 {
-        width: 100% !important;
-        max-width: min(90vw, 440px) !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        display: block !important;
-        text-align: center !important;
-      }
-
-      /* Haan/Na button row — centered flex */
-      #gallery-prompt-1 > .flex,
-      #gallery-prompt-2 > .flex {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: center !important;
-        flex-wrap: wrap !important;
-        gap: 12px !important;
-        width: 100% !important;
-      }
-
-      /* Haan/Na buttons — equal sizing */
-      #gallery-prompt-1 button,
-      #gallery-prompt-2 button:not(#runaway-btn) {
-        min-height: 44px !important;
-        padding: 10px 28px !important;
-        font-size: 0.95rem !important;
-        flex-shrink: 0 !important;
-      }
-
-      /* Gallery prompt 2 — no fixed height clipping */
-      #gallery-prompt-2 {
-        height: auto !important;
-        min-height: 0 !important;
-        padding-bottom: 36px !important;
-      }
-
-      /* Runaway button — stays within container */
-      #runaway-btn {
-        position: relative !important;
-        left: auto !important;
-        right: auto !important;
-        flex-shrink: 0 !important;
-      }
-
-      /* Bunny image — doesn't push layout */
-      #prank-bunny {
-        position: absolute !important;
-        bottom: -8px !important;
-        left: 8px !important;
-        width: 80px !important;
-        height: 80px !important;
-        z-index: 50 !important;
-        pointer-events: none !important;
-      }
-
-      /* ─────────────────────────────────────────
-         GENERAL OVERFLOW GUARDS
-         ───────────────────────────────────────── */
-      .glass-card {
-        max-width: calc(100vw - 32px);
-        width: 100%;
-      }
-      .glass-btn {
-        max-width: 100%;
-        white-space: normal;
-        word-break: break-word;
-        text-align: center;
-      }
-      .gallery-carousel-card {
-        max-width: 100%;
-        width: 100%;
-        margin: 0 auto;
-      }
-      .video-card {
-        max-width: 100%;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 20px;
-      }
-      .video-frame {
-        width: 100%;
-        max-height: 75vh;
-        aspect-ratio: 9/16;
-        object-fit: cover;
-      }
-      .photo-frame {
-        max-width: 88vw;
-        max-height: 58vh;
-        width: auto;
-        height: auto;
-        object-fit: cover;
-      }
-      .readable-caption {
-        font-size: clamp(1rem, 4vw, 1.8rem);
-        line-height: 1.3;
-        word-break: break-word;
-        overflow-wrap: break-word;
-      }
-      .scrollable-content {
-        overflow-x: hidden !important;
-        overflow-y: auto;
-        max-width: 100vw;
-        -webkit-overflow-scrolling: touch;
-      }
-      .grid {
-        max-width: 100%;
-      }
-      .max-w-lg, .max-w-6xl {
-        max-width: 100%;
-      }
-
-      /* ════════════════════════════════════════════════
-         MEDIA QUERY: max-width 768px
-         ════════════════════════════════════════════════ */
-      @media (max-width: 768px) {
-        body { height: 100dvh; overflow: hidden; }
-
-        .step { padding: 10px 16px; }
+      /* MOBILE MEDIA QUERIES (320px to 640px) */
+      @media (max-width: 640px) {
+        body { overflow: hidden; height: 100dvh; }
+        .step { padding: 10px 16px; overflow-x: hidden; }
 
         .scrollable-content {
-          padding-top: 1.5rem;
-          padding-bottom: 4rem;
+          padding-top: 2rem;
+          padding-bottom: 5rem;
           padding-left: 16px;
           padding-right: 16px;
         }
 
-        /* Step 1 */
-        #step-1 .glass-card { padding: 24px 16px; min-height: unset; }
-
-        /* Step 1-5: Greeting card mobile */
-        #greeting-card {
-          width: min(280px, calc(100vw - 40px)) !important;
-          height: min(400px, 65dvh) !important;
+        /* Prevent step 4 name overflow */
+        #meenakshi-name {
+          font-size: 14vw !important; /* Scaled to viewport safely */
+          line-height: 1.2;
+          overflow-wrap: break-word;
         }
 
-        /* Curtain lines smaller */
-        #curtain-line-1, #curtain-line-2 {
-          font-size: 2rem !important;
-        }
+        #step-4 h2 { font-size: 1.4rem; letter-spacing: 0.1em; }
+        #step-4 .glass-card { padding: 20px 16px; width: 90vw; }
+        
+        #gallery-prompt-1 p { font-size: 1.1rem; }
+        #gallery-prompt-1 button { padding: 10px 24px; font-size: 0.95rem; }
 
-        /* Step 4 name */
-        #meenakshi-name { font-size: 13vw; line-height: 1.1; word-break: break-word; }
+        /* Step 1.5 Header */
+        #step-1-5 > h2 { font-size: 1.8rem; margin-bottom: 12px; }
 
-        /* Headings */
-        #step-5 h2 { font-size: 1.7rem; margin-bottom: 10px; }
-        #step-6 h2 { font-size: 1.8rem; }
-        #step-7 h2 { font-size: 2rem; margin-bottom: 14px; }
-        #step-8 h2 { font-size: 1.8rem; margin-bottom: 14px; }
+        /* General Adjustments */
+        #step-5 h2 { font-size: 1.8rem; }
+        #step-6 h2 { font-size: 2rem; }
+        #step-7 h2 { font-size: 2.2rem; }
+        #step-8 h2 { font-size: 1.8rem; }
 
-        /* 2 column grid on mobile */
-        #step-7 .grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px; }
-
-        /* Video card */
-        .video-card { padding: 10px; border-radius: 16px; margin-bottom: 14px; }
-
-        /* Readable caption */
-        .readable-caption { font-size: 1.2rem; }
-
-        /* Perspective */
-        .perspective-container { perspective: 900px; }
+        .readable-caption { font-size: 1.1rem; }
+        .glass-btn { padding: 10px 20px; font-size: 0.95rem; }
       }
 
-      /* ════════════════════════════════════════════════
-         MEDIA QUERY: max-width 480px
-         ════════════════════════════════════════════════ */
-      @media (max-width: 480px) {
-        /* Step 1 */
-        #step-1 h1 { font-size: 1.9rem; }
-        #step-1 p  { font-size: 0.9rem; }
-        #step-1 .premium-gift-wrapper .relative { width: 96px !important; height: 96px !important; }
-
-        /* Step 1-5 */
-        #greeting-card {
-          width: min(260px, calc(100vw - 32px)) !important;
-          height: min(370px, 62dvh) !important;
-        }
-        #step-1-5 > h2 { font-size: 1.5rem; margin-bottom: 10px; }
-        .font-parisienne { font-size: 18px !important; }
-
-        /* Book buttons */
-        #book-next-page-btn,
-        #book-next-step-btn {
-          min-width: 160px !important;
-          padding: 10px 24px !important;
-          font-size: 0.95rem !important;
-        }
-
-        /* Curtain */
-        #curtain-line-1, #curtain-line-2 { font-size: 1.7rem !important; }
-        #curtain-btn {
-          padding: 11px 28px !important;
-          font-size: 0.95rem !important;
-          min-height: 44px !important;
-        }
-        #step-curtain .sparkle { width: 110px !important; height: 110px !important; }
-
-        /* Step 2 */
-        #step-2 .glass-card { padding: 18px 14px; }
-        #step-2 h2 { font-size: 1.25rem; }
-
-        /* Step 3 */
-        #step-3 h2 { font-size: 1.7rem; margin-bottom: 14px; }
-        #step-3 p  { font-size: 0.95rem; }
-        .photo-frame { max-width: 86vw; max-height: 55vh; }
-
-        /* Step 4 */
-        #step-4 h2 { font-size: 1rem; letter-spacing: 0.08em; }
-        #meenakshi-name { font-size: 14vw; }
-        #step-4 .glass-card { padding: 14px 12px; }
-        #wish-text { font-size: 1rem; }
-
-        /* Haan/Na section */
-        #gallery-prompt-1 p, #gallery-prompt-2 p { font-size: 0.95rem; margin-bottom: 14px; }
-        #gallery-prompt-1 button,
-        #gallery-prompt-2 button:not(#runaway-btn) {
-          padding: 9px 22px !important;
-          font-size: 0.9rem !important;
-        }
-
-        /* Steps 5–8 headings */
-        #step-5 h2 { font-size: 1.4rem; }
-        #step-6 h2 { font-size: 1.4rem; }
-        #step-6 p.text-xl { font-size: 0.95rem; }
-        #step-7 h2 { font-size: 1.6rem; }
-        #step-8 h2 { font-size: 1.4rem; }
-        #step-7 .grid { gap: 6px; }
-        #step-7 .readable-caption { font-size: 1rem; }
-
-        /* Buttons global */
-        .glass-btn { padding: 10px 20px; font-size: 0.9rem; }
-        .readable-caption { font-size: 1.05rem; }
-
-        /* Curtain min-height text container */
-        #step-curtain .min-h-\[120px\] { min-height: 76px !important; }
-
-        /* Step 8 baby photo */
-        #step-8 .max-w-\[250px\] { max-width: 190px !important; }
-
-        /* Video */
-        .video-card { padding: 8px; border-radius: 14px; }
-      }
-
-      /* ════════════════════════════════════════════════
-         MEDIA QUERY: max-width 360px (very small)
-         ════════════════════════════════════════════════ */
-      @media (max-width: 360px) {
-        #step-1 h1 { font-size: 1.6rem; }
-        #greeting-card {
-          width: min(240px, calc(100vw - 28px)) !important;
-          height: min(340px, 60dvh) !important;
-        }
-        #step-1-5 > h2 { font-size: 1.3rem; }
-        #curtain-line-1, #curtain-line-2 { font-size: 1.4rem !important; }
-        #meenakshi-name { font-size: 12vw; }
-        .readable-caption { font-size: 0.95rem; }
-        .glass-btn { padding: 8px 16px; font-size: 0.82rem; }
-        #step-7 .grid { grid-template-columns: repeat(2, 1fr) !important; gap: 5px; }
-        #book-next-page-btn,
-        #book-next-step-btn {
-          min-width: 140px !important;
-          padding: 9px 18px !important;
-          font-size: 0.88rem !important;
-        }
-      }
-
-      /* ════════════════════════════════════════════════
-         iOS Safe Area
-         ════════════════════════════════════════════════ */
-      @supports (padding-bottom: env(safe-area-inset-bottom)) {
-        .scrollable-content {
-          padding-bottom: calc(4rem + env(safe-area-inset-bottom));
-        }
+      @media (max-width: 380px) {
+        #step-1 h1 { font-size: 2.2rem; }
+        #meenakshi-name { font-size: 13vw !important; }
+        .readable-caption { font-size: 1rem; }
+        #step-1-5 > h2 { font-size: 1.5rem; }
       }
     </style>
   </head>
@@ -949,7 +660,7 @@
 
         <div
           class="premium-gift-wrapper relative z-10 flex items-center justify-center"
-          onclick="goToStep('1-5')"
+          onclick="window.goToStep('1-5')"
         >
           <div class="relative w-32 h-32 sm:w-40 sm:h-40 sparkle">
             <div class="absolute inset-0 bg-pink-600 rounded-full blur-2xl opacity-50"></div>
@@ -969,7 +680,7 @@
     <!-- Step 1.5: Greeting Card / Book -->
     <div
       id="step-1-5"
-      class="step w-full px-4 flex flex-col items-center justify-center relative"
+      class="step w-full px-4 flex-col items-center justify-center relative"
     >
       <div
         class="absolute inset-0 overflow-hidden pointer-events-none opacity-20 z-0"
@@ -1005,8 +716,8 @@
       >
         <div
           id="greeting-card"
-          class="card-wrapper relative w-[280px] sm:w-[300px] h-[400px] sm:h-[450px] cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-r-2xl"
-          onclick="openNewCard()"
+          class="card-wrapper relative w-full max-w-[280px] sm:max-w-[300px] h-[400px] sm:h-[450px] cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-r-2xl"
+          onclick="window.openNewCard()"
         >
           <div
             class="card-inside absolute inset-0 w-full h-full rounded-r-2xl border-l border-black/40 flex flex-col items-center justify-center p-2 sm:p-3"
@@ -1018,28 +729,12 @@
               <div
                 class="absolute top-2 right-2 text-pink-500/60 z-30 pointer-events-none drop-shadow-[0_0_5px_rgba(255,20,147,0.5)]"
               >
-                <svg
-                  class="w-5 h-5 sm:w-6 sm:h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                  />
-                </svg>
+                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
               </div>
               <div
                 class="absolute bottom-2 left-2 text-pink-500/60 z-30 pointer-events-none drop-shadow-[0_0_5px_rgba(255,20,147,0.5)]"
               >
-                <svg
-                  class="w-5 h-5 sm:w-6 sm:h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                  />
-                </svg>
+                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
               </div>
 
               <!-- Fixed Heading inside Card -->
@@ -1051,43 +746,33 @@
 
               <!-- Pages Container -->
               <div
-                class="relative w-full flex-grow mt-1.5 overflow-hidden flex flex-col items-center w-full"
+                class="relative w-full flex-grow mt-1.5 overflow-hidden flex flex-col"
               >
-                <!-- PAGE 1 (Text compressed & centered securely) -->
+                <!-- PAGE 1 (Text evenly spread securely) -->
                 <div
                   id="msg-page-1"
-                  class="absolute inset-0 w-full h-full flex flex-col justify-center items-center gap-1 sm:gap-1.5 transition-all duration-700 ease-in-out transform translate-x-0 opacity-100 pb-2 px-1 text-center"
+                  class="absolute inset-0 w-full h-full flex flex-col justify-center gap-1.5 sm:gap-2 transition-all duration-700 ease-in-out transform translate-x-0 opacity-100 pb-1 px-1"
                 >
-                  <p class="font-bold text-pink-400 text-[10px] sm:text-[13px] drop-shadow-[0_0_5px_rgba(255,20,147,0.5)] w-full">
+                  <p class="font-bold text-pink-400 text-[11px] sm:text-[13px] drop-shadow-[0_0_5px_rgba(255,20,147,0.5)] text-center">
                     Happy Birthday meenakshi! 🎂
                   </p>
-                  <p
-                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
-                  >
+                  <p class="text-pink-50 text-[9px] sm:text-[10.5px] font-medium leading-tight text-center">
                     Thank you for being always there, samajhne ke liye, aur bina
                     reason hasane aur hasne ke liye 😄
                   </p>
-                  <p
-                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
-                  >
+                  <p class="text-pink-50 text-[9px] sm:text-[10.5px] font-medium leading-tight text-center">
                     Apki smile aapka nature aur apki vibe sab top class hai 💖
                     Aur haan, aap natural hi itni pretty hai ki filters bhi
                     confuse ho jaate hain 😆✨
                   </p>
-                  <p
-                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
-                  >
+                  <p class="text-pink-50 text-[9px] sm:text-[10.5px] font-medium leading-tight text-center">
                     Bhagwan kare aapki life happiness, success aur love se full
                     rahe ✨
                   </p>
-                  <p
-                    class="font-bold text-pink-400 text-[9.5px] sm:text-[12px] drop-shadow-[0_0_8px_rgba(255,20,147,0.6)] whitespace-nowrap w-full"
-                  >
+                  <p class="font-bold text-pink-400 text-[10px] sm:text-[12px] drop-shadow-[0_0_8px_rgba(255,20,147,0.6)] whitespace-nowrap text-center">
                     🎂Happy Birthday Beautiful Queen!🎂
                   </p>
-                  <p
-                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
-                  >
+                  <p class="text-pink-50 text-[9px] sm:text-[10.5px] font-medium leading-tight text-center">
                     Hamesha aise hi hasi-mazaak karti reh, life ko enjoy karti
                     reh ✨ Aur haan, cake ka bada piece mere liye save rakhna 😋
                   </p>
@@ -1096,46 +781,33 @@
                 <!-- PAGE 2 -->
                 <div
                   id="msg-page-2"
-                  class="absolute inset-0 w-full h-full flex flex-col justify-center items-center gap-1 sm:gap-1.5 transition-all duration-700 ease-in-out transform translate-x-full opacity-0 pointer-events-none pb-2 pt-1 px-1 text-center"
+                  class="absolute inset-0 w-full h-full flex flex-col justify-center gap-1.5 sm:gap-2 transition-all duration-700 ease-in-out transform translate-x-full opacity-0 pointer-events-none pb-1 pt-0.5 px-1"
                 >
-                  <p
-                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
-                  >
+                  <p class="text-pink-50 text-[9.5px] sm:text-[11px] font-medium leading-tight text-center">
                     Sach bolu na… aap sirf meri friend nahi, meri daily smile ka
                     reason hai 😊 apki hasi, aur cute si baatein… sab kuch
                     special hai 💖
                   </p>
-                  <p
-                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
-                  >
+                  <p class="text-pink-50 text-[9.5px] sm:text-[11px] font-medium leading-tight text-center">
                     Aur haan, thodi si pagal bhi hai… par wahi aapko aur pyari
                     banata hai 😄
                   </p>
-                  <p
-                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
-                  >
+                  <p class="text-pink-50 text-[9.5px] sm:text-[11px] font-medium leading-tight text-center">
                     Apka Bachpna Apko Sabse Special Banata Hai
                   </p>
-                  <p
-                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
-                  >
+                  <p class="text-pink-50 text-[9.5px] sm:text-[11px] font-medium leading-tight text-center">
                     I Wish Aap hamesha aise hi khush rahe, haste rahe, aur
                     meri life mein apni cuteness failati rahe✨ Aur please
                     kabhi change mat hona aap aisi hi perfect hai💫
                   </p>
-                  <p
-                    class="text-pink-50 text-[8.5px] sm:text-[10.5px] font-medium leading-[1.3] w-full"
-                  >
-                    Aise hi beautiful,dulari and pyari bani reh Aur party dena
+                  <p class="text-pink-50 text-[9.5px] sm:text-[11px] font-medium leading-tight text-center">
+                    Aise hi beautiful,dulari and pyari bani reh Aurpa party dena
                     mat bhulna warna mujhe gussa aa jayega crazy wala
                   </p>
-                  <div class="flex flex-col items-center w-full mt-1">
+                  <div class="flex flex-col items-center w-full mt-0.5">
                     <div class="w-10 h-px bg-pink-500 mb-1 shadow-[0_0_10px_#ff1493]"></div>
-                    <p
-                      class="font-['Caveat'] font-bold text-[12px] sm:text-[15px] leading-tight text-pink-400 px-1 w-full drop-shadow-[0_0_5px_rgba(255,20,147,0.5)]"
-                    >
-                      you are the most valuable or beautiful person in my jeevan
-                      🤭
+                    <p class="font-['Caveat'] font-bold text-[14px] sm:text-[16px] leading-tight text-pink-400 px-2 max-w-[240px] drop-shadow-[0_0_5px_rgba(255,20,147,0.5)] text-center">
+                      you are the most valuable or beautiful person in my jeevan 🤭
                     </p>
                   </div>
                 </div>
@@ -1153,145 +825,47 @@
               <div
                 class="pink-gold-border w-full h-full rounded-xl flex flex-col items-center justify-center p-4 sm:p-6 relative overflow-hidden bg-gradient-to-b from-white/5 to-transparent"
               >
-                <div
-                  class="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-pink-500 shadow-[0_0_10px_#ff1493]"
-                ></div>
-                <div
-                  class="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-pink-500 shadow-[0_0_10px_#ff1493]"
-                ></div>
-                <div
-                  class="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-pink-500 shadow-[0_0_10px_#ff1493]"
-                ></div>
-                <div
-                  class="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-pink-500 shadow-[0_0_10px_#ff1493]"
-                ></div>
+                <div class="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-pink-500 shadow-[0_0_10px_#ff1493]"></div>
+                <div class="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-pink-500 shadow-[0_0_10px_#ff1493]"></div>
+                <div class="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-pink-500 shadow-[0_0_10px_#ff1493]"></div>
+                <div class="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-pink-500 shadow-[0_0_10px_#ff1493]"></div>
 
                 <div class="relative w-20 h-20 sm:w-24 sm:h-24 mb-6 sparkle">
-                  <div
-                    class="absolute inset-0 bg-pink-600 rounded-full blur-xl opacity-60"
-                  ></div>
+                  <div class="absolute inset-0 bg-pink-600 rounded-full blur-xl opacity-60"></div>
                   <!-- Original SVG Cake restored -->
-                  <svg
-                    viewBox="0 0 256 256"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-full h-full relative z-10 drop-shadow-[0_5px_25px_rgba(255,20,147,0.9)]"
-                  >
-                    <ellipse
-                      cx="128"
-                      cy="210"
-                      rx="90"
-                      ry="20"
-                      fill="#240010"
-                      stroke="#ff1493"
-                      stroke-width="4"
-                    />
-                    <path
-                      d="M60 205 V 140 C 60 130, 196 130, 196 140 V 205 C 196 215, 60 215, 60 205 Z"
-                      fill="#4a0024"
-                    />
-                    <path
-                      d="M60 140 Q 75 160 90 140 Q 105 165 128 140 Q 150 160 166 140 Q 180 165 196 140 V 135 C 196 125, 60 125, 60 135 Z"
-                      fill="#ff1493"
-                    />
-                    <path
-                      d="M85 140 V 85 C 85 75, 171 75, 171 85 V 140 Z"
-                      fill="#7a003c"
-                    />
-                    <path
-                      d="M85 85 Q 100 105 115 85 Q 128 110 140 85 Q 155 105 171 85 V 80 C 171 70, 85 70, 85 80 Z"
-                      fill="#ff69b4"
-                    />
-                    <rect
-                      x="110"
-                      y="45"
-                      width="8"
-                      height="35"
-                      rx="2"
-                      fill="#fff"
-                      stroke="#ff1493"
-                      stroke-width="1"
-                      class="drop-shadow-[0_0_5px_#ff1493]"
-                    />
-                    <rect
-                      x="138"
-                      y="45"
-                      width="8"
-                      height="35"
-                      rx="2"
-                      fill="#fff"
-                      stroke="#ff1493"
-                      stroke-width="1"
-                      class="drop-shadow-[0_0_5px_#ff1493]"
-                    />
-                    <path
-                      d="M110 55 L118 50 M110 65 L118 60 M110 75 L118 70"
-                      stroke="#ff1493"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M138 55 L146 50 M138 65 L146 60 M138 75 L146 70"
-                      stroke="#ff1493"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M114 43 Q 110 35 114 25 Q 118 35 114 43 Z"
-                      fill="#fff"
-                      class="animate-pulse drop-shadow-[0_0_10px_#fff]"
-                    />
-                    <path
-                      d="M142 43 Q 138 35 142 25 Q 146 35 142 43 Z"
-                      fill="#fff"
-                      class="animate-pulse drop-shadow-[0_0_10px_#fff]"
-                    />
+                  <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full relative z-10 drop-shadow-[0_5px_25px_rgba(255,20,147,0.9)]">
+                    <ellipse cx="128" cy="210" rx="90" ry="20" fill="#240010" stroke="#ff1493" stroke-width="4"/>
+                    <path d="M60 205 V 140 C 60 130, 196 130, 196 140 V 205 C 196 215, 60 215, 60 205 Z" fill="#4a0024"/>
+                    <path d="M60 140 Q 75 160 90 140 Q 105 165 128 140 Q 150 160 166 140 Q 180 165 196 140 V 135 C 196 125, 60 125, 60 135 Z" fill="#ff1493"/>
+                    <path d="M85 140 V 85 C 85 75, 171 75, 171 85 V 140 Z" fill="#7a003c"/>
+                    <path d="M85 85 Q 100 105 115 85 Q 128 110 140 85 Q 155 105 171 85 V 80 C 171 70, 85 70, 85 80 Z" fill="#ff69b4"/>
+                    <rect x="110" y="45" width="8" height="35" rx="2" fill="#fff" stroke="#ff1493" stroke-width="1" class="drop-shadow-[0_0_5px_#ff1493]"/>
+                    <rect x="138" y="45" width="8" height="35" rx="2" fill="#fff" stroke="#ff1493" stroke-width="1" class="drop-shadow-[0_0_5px_#ff1493]"/>
+                    <path d="M110 55 L118 50 M110 65 L118 60 M110 75 L118 70" stroke="#ff1493" stroke-width="2"/>
+                    <path d="M138 55 L146 50 M138 65 L146 60 M138 75 L146 70" stroke="#ff1493" stroke-width="2"/>
+                    <path d="M114 43 Q 110 35 114 25 Q 118 35 114 43 Z" fill="#fff" class="animate-pulse drop-shadow-[0_0_10px_#fff]"/>
+                    <path d="M142 43 Q 138 35 142 25 Q 146 35 142 43 Z" fill="#fff" class="animate-pulse drop-shadow-[0_0_10px_#fff]"/>
                     <circle cx="90" cy="180" r="4" fill="#ff1493" class="drop-shadow-[0_0_5px_#ff1493]"/>
                     <circle cx="128" cy="180" r="4" fill="#ff1493" class="drop-shadow-[0_0_5px_#ff1493]"/>
                     <circle cx="166" cy="180" r="4" fill="#ff1493" class="drop-shadow-[0_0_5px_#ff1493]"/>
                   </svg>
                 </div>
 
-                <h1
-                  class="font-parisienne text-3xl sm:text-5xl font-bold neon-text mb-4 text-center leading-tight"
-                >
+                <h1 class="font-parisienne text-3xl sm:text-5xl font-bold neon-text mb-4 text-center leading-tight">
                   Happy Birthday<br />Dear Mini Ji
                 </h1>
               </div>
             </div>
 
-            <div
-              class="cover-back card-face rounded-l-2xl flex items-center justify-center p-3 sm:p-4 border-r border-black/40"
-            >
-              <div
-                class="inner-page-border w-full h-full rounded-xl flex items-center justify-center p-4 sm:p-6 relative bg-black/60 shadow-[inset_0_0_20px_rgba(0,0,0,0.8)]"
-              >
-                <div
-                  class="absolute inset-0 flex items-center justify-center opacity-10"
-                >
-                  <svg
-                    class="w-32 h-32 text-pink-500"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                    />
-                  </svg>
+            <div class="cover-back card-face rounded-l-2xl flex items-center justify-center p-3 sm:p-4 border-r border-black/40">
+              <div class="inner-page-border w-full h-full rounded-xl flex items-center justify-center p-4 sm:p-6 relative bg-black/60 shadow-[inset_0_0_20px_rgba(0,0,0,0.8)]">
+                <div class="absolute inset-0 flex items-center justify-center opacity-10">
+                  <svg class="w-32 h-32 text-pink-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                 </div>
                 <div class="text-center relative z-10">
-                  <svg
-                    class="w-6 h-6 sm:w-8 sm:h-8 text-pink-500 mx-auto mb-3 drop-shadow-[0_0_10px_rgba(255,20,147,0.8)]"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"
-                    />
-                  </svg>
-                  <p
-                    class="font-['Playfair_Display'] italic text-pink-200 text-xs sm:text-sm leading-relaxed font-semibold"
-                  >
-                    "Count your life by smiles, not tears.<br />Count your age
-                    by friends, not years."
+                  <svg class="w-6 h-6 sm:w-8 sm:h-8 text-pink-500 mx-auto mb-3 drop-shadow-[0_0_10px_rgba(255,20,147,0.8)]" fill="currentColor" viewBox="0 0 24 24"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
+                  <p class="font-['Playfair_Display'] italic text-pink-200 text-xs sm:text-sm leading-relaxed font-semibold">
+                    "Count your life by smiles, not tears.<br />Count your age by friends, not years."
                   </p>
                 </div>
               </div>
@@ -1301,24 +875,9 @@
       </div>
 
       <!-- Buttons OUTSIDE the card -->
-      <div
-        id="step-1-5-btn-container"
-        class="mt-6 z-20 flex flex-col items-center gap-3 opacity-0 pointer-events-none transition-opacity duration-500 w-full px-4"
-      >
-        <button
-          id="book-next-page-btn"
-          onclick="turnPage(event)"
-          class="glass-btn px-8 py-3 text-base font-semibold tracking-wide w-full max-w-[260px]"
-        >
-          Aur Pado 📖
-        </button>
-        <!-- Ye sidha Curtain wale step pe jayega -->
-        <button
-          id="book-next-step-btn"
-          onclick="openCurtainStep()"
-          class="glass-btn px-8 py-3 text-base font-semibold tracking-wide hidden w-full max-w-[260px]"
-        >
-          Aage Badhein ➡️
+      <div id="step-1-5-btn-container" class="mt-8 z-20 flex flex-col items-center opacity-0 pointer-events-none transition-opacity duration-500 w-full px-4">
+        <button id="book-next-page-btn" onclick="window.turnPage(event)" class="glass-btn px-8 py-3 text-base font-semibold tracking-wide w-full max-w-[260px]">
+          Aur Padho 📖
         </button>
       </div>
     </div>
@@ -1335,7 +894,7 @@
         <div id="right-curtain" class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#2a0010] to-[#4a0024] border-l-2 border-pink-500 z-50 transition-transform duration-[2s] ease-in-out shadow-[-5px_0_15px_rgba(0,0,0,0.8)]"></div>
 
         <!-- Content inside Curtain -->
-        <div id="curtain-content" class="relative z-40 flex flex-col items-center justify-center opacity-0 transition-opacity duration-[1.5s] w-full h-full px-4 text-center">
+        <div id="curtain-content" class="relative z-40 flex flex-col items-center justify-center opacity-0 transition-opacity duration-[1.5s] w-full px-4 text-center mt-10">
             
             <!-- Typing Text Container (2 Lines) -->
             <div class="min-h-[120px] sm:min-h-[140px] flex flex-col items-center justify-center mb-6 w-full">
@@ -1350,7 +909,7 @@
                 <img src="cake2.png" alt="Birthday Cake" class="w-full h-full object-contain relative z-10 drop-shadow-[0_5px_25px_rgba(255,20,147,0.9)]" onerror="this.src='https://placehold.co/300x300/110008/ff1493?text=Cake'" />
             </div>
 
-            <button id="curtain-btn" onclick="goToStep(2)" class="glass-btn font-bold py-3 px-8 text-lg z-50 relative mt-2 opacity-0 transition-opacity duration-1000">
+            <button id="curtain-btn" onclick="window.goToStep(2)" class="glass-btn font-bold py-3 px-8 text-lg z-50 relative mt-2 opacity-0 transition-opacity duration-1000">
                 Surprise Aage Hai 😉
             </button>
         </div>
@@ -1359,88 +918,42 @@
     <!-- Step 2: Teaser -->
     <div id="step-2" class="step w-full px-4">
       <div class="glass-card p-8 md:p-12 text-center max-w-md mx-auto w-full">
-        <h2
-          class="text-2xl md:text-3xl font-semibold mb-6 text-white leading-tight glow-text"
-        >
-          Wait, aage badhne se pehle...
-        </h2>
-        <p class="text-lg text-pink-100 mb-8">
-          Meri Favourite Picture and Person dekhna hai? 😉
-        </p>
-        <button
-          onclick="goToStep(3)"
-          class="glass-btn font-bold py-3 px-8 text-lg w-full sm:w-auto"
-        >
-          Haan, dikhao!
-        </button>
+        <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-white leading-tight glow-text">Wait, aage badhne se pehle...</h2>
+        <p class="text-lg text-pink-100 mb-8">Meri Favourite Picture and Person dekhna hai? 😉</p>
+        <button onclick="window.goToStep(3)" class="glass-btn font-bold py-3 px-8 text-lg w-full sm:w-auto">Haan, dikhao!</button>
       </div>
     </div>
 
     <!-- Step 3: Photo Reveal -->
     <div id="step-3" class="step w-full px-4">
-      <div
-        class="text-center flex flex-col items-center w-full max-w-lg mx-auto"
-      >
-        <h2
-          class="text-3xl md:text-4xl cursive-font glow-text text-white mb-6 tracking-wide"
-        >
-          Dear Mini ji ✨
-        </h2>
+      <div class="text-center flex flex-col items-center w-full max-w-lg mx-auto">
+        <h2 class="text-3xl md:text-4xl cursive-font glow-text text-white mb-6 tracking-wide">Dear Mini ji ✨</h2>
 
         <div class="relative group mb-8">
           <!-- Dark Neon Photo Back Glow -->
-          <div
-            class="absolute -inset-4 bg-gradient-to-r from-pink-600 via-purple-600 to-pink-600 rounded-xl blur-lg opacity-80 animate-pulse"
-          ></div>
-          <img
-            src="pic39.jpeg"
-            alt="Meenakshi"
-            class="photo-frame"
-            onerror="
-              this.src =
-                'https://placehold.co/400x500/110008/ff1493?text=Yahan+Meenakshi+Ki+Photo+Hogi'
-            "
-          />
+          <div class="absolute -inset-4 bg-gradient-to-r from-pink-600 via-purple-600 to-pink-600 rounded-xl blur-lg opacity-80 animate-pulse"></div>
+          <img src="pic39.jpeg" alt="Meenakshi" class="photo-frame" onerror="this.src='https://placehold.co/400x500/110008/ff1493?text=Yahan+Meenakshi+Ki+Photo+Hogi'"/>
         </div>
 
-        <p
-          class="text-lg md:text-xl mb-8 text-pink-50 font-medium drop-shadow-md"
-        >
-          Apki Khobbsurti Aaye Hayeeee Kanhi Jhol Mol na Ho Jaye😅❤️<br />Beautyfull girl ke liye
-          something crazy are you ready?
+        <p class="text-lg md:text-xl mb-8 text-pink-50 font-medium drop-shadow-md">
+          Apki Khobbsurti Aaye Hayeeee Kanhi Jhol Mol na Ho Jaye😅❤️<br />Beautyfull girl ke liye something crazy are you ready?
         </p>
-        <button
-          onclick="startFinalCelebration()"
-          class="glass-btn font-bold py-3 px-8 text-lg"
-        >
-          Haan ji
-        </button>
+        <button onclick="window.startFinalCelebration()" class="glass-btn font-bold py-3 px-8 text-lg">Haan ji</button>
       </div>
     </div>
 
-    <!-- Step 4: Main Celebration (Responsive Fix) -->
-    <div id="step-4" class="step w-full max-w-[100vw] px-2 flex flex-col items-center justify-center relative overflow-hidden">
-      <h2
-        class="text-2xl sm:text-3xl md:text-4xl font-semibold uppercase tracking-widest text-pink-200 mb-2 drop-shadow-[0_0_10px_#ff1493] text-center w-full"
-      >
+    <!-- Step 4: Main Celebration (Responsive & Centered Fix) -->
+    <div id="step-4" class="step w-full max-w-[100vw] px-4 flex flex-col items-center justify-center relative overflow-hidden">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold uppercase tracking-widest text-pink-200 mb-2 drop-shadow-[0_0_10px_#ff1493] text-center w-full">
         Happy Birthday
       </h2>
-      <h1
-        id="meenakshi-name"
-        class="text-[12vw] sm:text-6xl md:text-8xl font-bold cursive-font neon-text mb-8 text-center break-words px-2 w-full min-h-[1.2em]"
-      >
+      <h1 id="meenakshi-name" class="text-[12vw] sm:text-6xl md:text-8xl font-bold cursive-font neon-text mb-8 text-center break-words px-2 w-full min-h-[1.2em]">
         <!-- Handled by typing script -->
       </h1>
 
       <div class="glass-card w-full max-w-[90vw] sm:max-w-md p-6 sm:p-8 mt-4 mx-auto">
-        <div
-          id="wish-container"
-          class="min-h-[100px] flex items-center justify-center w-full"
-        >
-          <p
-            id="wish-text"
-            class="text-lg sm:text-xl md:text-2xl font-medium text-white transition-opacity duration-500 text-center drop-shadow-[0_0_8px_rgba(255,20,147,0.8)]"
-          >
+        <div id="wish-container" class="min-h-[100px] flex items-center justify-center w-full">
+          <p id="wish-text" class="text-lg sm:text-xl md:text-2xl font-medium text-white transition-opacity duration-500 text-center drop-shadow-[0_0_8px_rgba(255,20,147,0.8)]">
             <!-- Handled by typing script -->
           </p>
         </div>
@@ -1453,502 +966,130 @@
         </div>
       </div>
 
-      <div
-        id="gallery-prompt-1"
-        class="mt-10 opacity-0 fade-in w-full max-w-[90vw] sm:max-w-md mx-auto px-2 text-center"
-        style="animation-delay: 2s; animation-duration: 2s"
-      >
-        <p
-          class="text-lg sm:text-xl md:text-2xl text-pink-100 font-semibold mb-6 drop-shadow-[0_0_8px_rgba(255,20,147,0.6)] break-words"
-        >
-          boootttttiiiiiifooollllllll girl ke liye kuch hai mere pass bolo dikha
-          dun? 🫣
+      <div id="gallery-prompt-1" class="mt-10 opacity-0 fade-in w-full max-w-[90vw] sm:max-w-md mx-auto px-2 text-center" style="animation-delay: 2s; animation-duration: 2s">
+        <p class="text-lg sm:text-xl md:text-2xl text-pink-100 font-semibold mb-6 drop-shadow-[0_0_8px_rgba(255,20,147,0.6)] break-words">
+          boootttttiiiiiifooollllllll girl ke liye kuch hai mere pass bolo dikha dun? 🫣
         </p>
-        <div class="flex justify-center gap-4 sm:gap-6 flex-wrap">
-          <button onclick="goToGallery()" class="glass-btn font-bold py-3 px-8">
-            Haan 😍
-          </button>
-          <button
-            onclick="showAngryPrompt()"
-            class="glass-btn font-bold py-3 px-8"
-          >
-            Na 😒
-          </button>
+        <!-- Hover movement aur prompt 2 nikaal diya gaya hai. Ab dono buttons sidha gallery step pe jayenge -->
+        <div class="flex justify-center gap-4 sm:gap-6 flex-wrap w-full">
+          <button onclick="window.goToGallery()" class="glass-btn font-bold py-3 px-8">Haan 😍</button>
+          <button onclick="window.goToGallery()" class="glass-btn font-bold py-3 px-8">Na 😒</button>
         </div>
-      </div>
-
-      <div
-        id="gallery-prompt-2"
-        class="mt-8 hidden w-full max-w-[90vw] sm:max-w-md mx-auto text-center px-2 relative pb-8"
-      >
-        <p
-          class="text-lg sm:text-xl md:text-2xl text-pink-400 font-bold mb-6 drop-shadow-[0_0_10px_rgba(255,20,147,0.8)] break-words"
-        >
-          Gussa ho jaunga main 😡<br />Bolo dikhaun ki nahi?
-        </p>
-        <div class="flex justify-center gap-4 relative flex-wrap w-full">
-          <button
-            onclick="goToGallery()"
-            class="glass-btn font-bold py-2 px-4 sm:px-6 z-20 text-sm sm:text-base mx-auto"
-          >
-            Ha thik hai dikha do 🙄
-          </button>
-          <button
-            id="runaway-btn"
-            onmouseover="moveButton()"
-            ontouchstart="moveButton()"
-            onclick="moveButton()"
-            class="glass-btn !text-pink-300 font-bold py-2 px-6 sm:px-8 absolute z-30 transform-gpu text-sm sm:text-base border-pink-500 left-0 right-0 mx-auto w-max"
-          >
-            Na 🏃‍♀️
-          </button>
-        </div>
-
-        <img id="prank-bunny" src="image_4b9deb.png" class="absolute -bottom-20 left-0 w-24 h-24 z-50 transform translate-y-32 transition-transform duration-700 ease-out drop-shadow-[0_0_15px_rgba(255,20,147,0.8)]" alt="Judging Bunny" onerror="this.style.display='none'">
       </div>
     </div>
 
     <!-- Step 5: Memories Carousel Gallery -->
-    <div
-      id="step-5"
-      class="step w-full h-full px-4 sm:px-8 flex flex-col justify-center items-center"
-    >
-      <h2
-        class="text-4xl md:text-5xl font-bold cursive-font text-center glow-text text-white mb-6"
-      >
-        Happy Birthday Dear Mini Ji✨
-      </h2>
+    <div id="step-5" class="step w-full h-full px-4 sm:px-8 flex flex-col justify-center items-center">
+      <h2 class="text-4xl md:text-5xl font-bold cursive-font text-center glow-text text-white mb-6">Happy Birthday Dear Mini Ji✨</h2>
 
       <div class="gallery-carousel-card touch-pan-y w-full" id="carousel-container">
-        <div
-          class="relative overflow-hidden rounded-xl bg-black/40 aspect-[4/5] shadow-[0_0_30px_rgba(0,0,0,0.8)] group border border-pink-600/30 w-full"
-        >
-          <img
-            id="carousel-img"
-            src="pic1.jpg"
-            alt="Memory"
-            class="w-full h-full object-cover transition-opacity duration-300"
-            onerror="
-              this.src =
-                'https://placehold.co/400x500/110008/ff1493?text=Photo+1'
-            "
-          />
-
+        <div class="relative overflow-hidden rounded-xl bg-black/40 aspect-[4/5] shadow-[0_0_30px_rgba(0,0,0,0.8)] group border border-pink-600/30 w-full">
+          <img id="carousel-img" src="pic1.jpg" alt="Memory" class="w-full h-full object-cover transition-opacity duration-300" onerror="this.src='https://placehold.co/400x500/110008/ff1493?text=Photo+1'"/>
           <div class="absolute left-2 top-1/2 -translate-y-1/2 z-10">
-            <button onclick="prevPhoto()" class="glass-btn w-10 h-10 flex justify-center items-center text-xl !p-0">❮</button>
+            <button onclick="window.prevPhoto()" class="glass-btn w-10 h-10 flex justify-center items-center text-xl !p-0">❮</button>
           </div>
           <div class="absolute right-2 top-1/2 -translate-y-1/2 z-10">
-            <button onclick="nextPhoto()" class="glass-btn w-10 h-10 flex justify-center items-center text-xl !p-0">❯</button>
+            <button onclick="window.nextPhoto()" class="glass-btn w-10 h-10 flex justify-center items-center text-xl !p-0">❯</button>
           </div>
         </div>
 
         <div class="h-auto flex flex-col items-center justify-center mt-5 mb-2 w-full">
-          <p
-            id="carousel-caption"
-            class="readable-caption text-center transition-opacity duration-300 min-h-[3.6rem] w-full"
-          >
-          </p>
-          <span
-            id="carousel-counter"
-            class="text-pink-200 font-semibold tracking-widest text-sm font-mono mt-2 bg-pink-900/40 px-4 py-1 rounded-full backdrop-blur-sm border border-pink-500/40 shadow-[0_0_10px_rgba(255,20,147,0.3)]"
-            >1 / 10</span
-          >
+          <p id="carousel-caption" class="readable-caption text-center transition-opacity duration-300 min-h-[3.6rem] w-full"></p>
+          <span id="carousel-counter" class="text-pink-200 font-semibold tracking-widest text-sm font-mono mt-2 bg-pink-900/40 px-4 py-1 rounded-full backdrop-blur-sm border border-pink-500/40 shadow-[0_0_10px_rgba(255,20,147,0.3)]">1 / 10</span>
         </div>
 
-        <p class="text-center text-pink-300/60 text-xs mt-1 animate-pulse w-full">
-          Face Pe Smile Banaye Rakhein Guys
-        </p>
+        <p class="text-center text-pink-300/60 text-xs mt-1 animate-pulse w-full">Face Pe Smile Banaye Rakhein Guys</p>
       </div>
 
       <div class="mt-8 flex flex-col items-center gap-4 w-full max-w-sm px-4">
-        <button
-          onclick="goToStep(6)"
-          class="glass-btn w-full font-bold py-3 px-4 flex justify-center items-center gap-2 text-sm sm:text-base whitespace-normal break-words leading-tight text-center"
-        >
-          Aapke liye something crazyyyyyyyy 😜
-        </button>
-        <button
-          onclick="goToStep(4)"
-          class="glass-btn w-full max-w-[200px] font-semibold py-2 px-6 text-sm"
-        >
-          Wapas Piche Jao 🔙
-        </button>
+        <button onclick="window.goToStep(6)" class="glass-btn w-full font-bold py-3 px-4 flex justify-center items-center gap-2 text-sm sm:text-base whitespace-normal break-words leading-tight text-center">Aapke liye something crazyyyyyyyy 😜</button>
+        <button onclick="window.goToStep(4)" class="glass-btn w-full max-w-[200px] font-semibold py-2 px-6 text-sm">Wapas Piche Jao 🔙</button>
       </div>
     </div>
 
     <!-- Step 6: Romantic & Premium Videos -->
     <div id="step-6" class="step w-full h-full px-4 sm:px-8 scrollable-content">
       <div class="max-w-lg mx-auto w-full">
-        <h2
-          class="text-4xl md:text-5xl font-bold cursive-font text-center glow-text text-white mb-2"
-        >
-          Special Moments 🎥
-        </h2>
-        <p
-          class="text-center text-pink-200/80 mb-10 text-xl font-['Caveat'] tracking-wide"
-        >
-          Kuch pal jo lafzon mein bayaan nahi hote... ✨
-        </p>
+        <h2 class="text-4xl md:text-5xl font-bold cursive-font text-center glow-text text-white mb-2">Special Moments 🎥</h2>
+        <p class="text-center text-pink-200/80 mb-10 text-xl font-['Caveat'] tracking-wide">Kuch pal jo lafzon mein bayaan nahi hote... ✨</p>
 
         <div class="video-card">
-          <video
-            class="video-frame premium-video"
-            controls
-            poster="images/reel-cover.jpg"
-          >
-            <source src="vid2.mp4" type="video/mp4" />
-          </video>
+          <video class="video-frame premium-video" controls poster="images/reel-cover.jpg"><source src="vid2.mp4" type="video/mp4" /></video>
           <p id="vid-cap-1" class="readable-caption text-center mt-5 text-pink-50 min-h-[2.4rem] w-full"></p>
         </div>
-
         <div class="video-card">
-          <video
-            class="video-frame premium-video"
-            controls
-            poster="images/reel-cover.jpg"
-          >
-            <source src="vid1.mp4" type="video/mp4" />
-          </video>
+          <video class="video-frame premium-video" controls poster="images/reel-cover.jpg"><source src="vid1.mp4" type="video/mp4" /></video>
           <p id="vid-cap-2" class="readable-caption text-center mt-5 text-pink-50 min-h-[2.4rem] w-full"></p>
         </div>
-
          <div class="video-card">
-          <video
-            class="video-frame premium-video"
-            controls
-            poster="images/reel-cover.jpg"
-          >
-            <source src="vid3.mp4" type="video/mp4" />
-          </video>
+          <video class="video-frame premium-video" controls poster="images/reel-cover.jpg"><source src="vid1.mp4" type="video/mp4" /></video>
           <p id="vid-cap-3" class="readable-caption text-center mt-5 text-pink-50 min-h-[2.4rem] w-full"></p>
         </div>
-
         <div class="video-card">
-          <video
-            class="video-frame premium-video"
-            controls
-            poster="images/reel-cover.jpg"
-          >
-            <source src="vid4.mp4" type="video/mp4" />
-          </video>
+          <video class="video-frame premium-video" controls poster="images/reel-cover.jpg"><source src="vid4.mp4" type="video/mp4" /></video>
           <p id="vid-cap-4" class="readable-caption text-center mt-5 text-pink-50 min-h-[2.4rem] w-full"></p>
         </div>
 
-        <div
-          class="mt-12 mb-8 text-center flex flex-col items-center gap-4 px-2"
-        >
-          <p
-            class="text-lg sm:text-xl md:text-2xl text-pink-200 font-semibold drop-shadow-[0_0_8px_rgba(255,20,147,0.6)] break-words"
-          >
-            aapke liye kuch aur bhi hai dikhaun 🙈
-          </p>
-          <button
-            onclick="goToStep(7)"
-            class="glass-btn font-bold py-3 px-10 text-lg"
-          >
-            Han ji ✨
-          </button>
-          <button
-            onclick="goToStep(5)"
-            class="glass-btn mt-6 font-semibold py-2 px-6 text-sm"
-          >
-            Wapas Yaadon Mein 🔙
-          </button>
+        <div class="mt-12 mb-8 text-center flex flex-col items-center gap-4 px-2">
+          <p class="text-lg sm:text-xl md:text-2xl text-pink-200 font-semibold drop-shadow-[0_0_8px_rgba(255,20,147,0.6)] break-words">aapke liye kuch aur bhi hai dikhaun 🙈</p>
+          <button onclick="window.goToStep(7)" class="glass-btn font-bold py-3 px-10 text-lg">Han ji ✨</button>
+          <button onclick="window.goToStep(5)" class="glass-btn mt-6 font-semibold py-2 px-6 text-sm">Wapas Yaadon Mein 🔙</button>
         </div>
       </div>
     </div>
 
     <!-- Step 7: Final Photo Section -->
-    <div
-      id="step-7"
-      class="step w-full h-full px-4 sm:px-8 scrollable-content flex flex-col items-center"
-    >
+    <div id="step-7" class="step w-full h-full px-4 sm:px-8 scrollable-content flex flex-col items-center">
       <div class="max-w-6xl mx-auto w-full text-center pb-10">
-        <h2
-          class="text-4xl md:text-5xl font-bold cursive-font text-center glow-text text-white mb-10 mt-4"
-        >
-          You are the Best! 💖
-        </h2>
+        <h2 class="text-4xl md:text-5xl font-bold cursive-font text-center glow-text text-white mb-10 mt-4">You are the Best! 💖</h2>
 
         <!-- 15 Portrait Images Grid Dark Theme -->
-        <div
-          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-5 place-items-stretch text-left w-full"
-        >
-          <div class="collage-card aspect-[4/5]">
-            <img
-              src="pic12.jpg"
-              alt="Collage 1"
-              class="collage-img"
-              onerror="
-                this.src =
-                  'https://placehold.co/400x500/110008/ff1493?text=Pic+11'
-              "
-            />
-            <div class="collage-overlay">
-              <span class="readable-caption text-white text-2xl"
-                >Priceless ✨</span
-              >
-            </div>
-          </div>
-          <div class="collage-card aspect-[4/5]">
-            <img
-              src="pic11.jpg"
-              alt="Collage 2"
-              class="collage-img"
-              onerror="
-                this.src =
-                  'https://placehold.co/400x500/110008/ff69b4?text=Pic+12'
-              "
-            />
-          </div>
-          <div class="collage-card aspect-[4/5]">
-            <img
-              src="pic7.jpg"
-              alt="Collage 3"
-              class="collage-img"
-              onerror="
-                this.src =
-                  'https://placehold.co/400x500/110008/da70d6?text=Pic+13'
-              "
-            />
-            <div class="collage-overlay">
-              <span class="readable-caption text-white text-2xl"
-                >Gorgeous 🌸</span
-              >
-            </div>
-          </div>
-          <div class="collage-card aspect-[4/5]">
-            <img
-              src="pic14.jpg"
-              alt="Collage 4"
-              class="collage-img"
-              onerror="
-                this.src =
-                  'https://placehold.co/400x500/110008/ff1493?text=Pic+14'
-              "
-            />
-          </div>
-          <div class="collage-card aspect-[4/5]">
-            <img
-              src="pic35.jpg"
-              alt="Collage 5"
-              class="collage-img"
-              onerror="
-                this.src =
-                  'https://placehold.co/400x500/110008/ff69b4?text=Pic+15'
-              "
-            />
-            <div class="collage-overlay">
-              <span class="readable-caption text-white text-2xl"
-                >Herooo😅😅</span
-              >
-            </div>
-          </div>
-          <div class="collage-card aspect-[4/5]">
-            <img
-              src="pic16.jpg"
-              alt="Collage 6"
-              class="collage-img"
-              onerror="
-                this.src =
-                  'https://placehold.co/400x500/110008/da70d6?text=Pic+16'
-              "
-            />
-          </div>
-          <div class="collage-card aspect-[4/5]">
-            <img
-              src="pic17.jpeg"
-              alt="Collage 7"
-              class="collage-img"
-              onerror="
-                this.src =
-                  'https://placehold.co/400x500/110008/ff1493?text=Pic+17'
-              "
-            />
-            <div class="collage-overlay">
-              <span class="readable-caption text-white text-2xl">Cutie 🥰</span>
-            </div>
-          </div>
-          <div class="collage-card aspect-[4/5]">
-            <img
-              src="pic18.jpeg"
-              alt="Collage 8"
-              class="collage-img"
-              onerror="
-                this.src =
-                  'https://placehold.co/400x500/110008/ff69b4?text=Pic+18'
-              "
-            />
-          </div>
-          <div class="collage-card aspect-[4/5]">
-            <img
-              src="pic19.jpeg"
-              alt="Collage 9"
-              class="collage-img"
-              onerror="
-                this.src =
-                  'https://placehold.co/400x500/110008/da70d6?text=Pic+19'
-              "
-            />
-            <div class="collage-overlay">
-              <span class="readable-caption text-white text-2xl">Vibes 💫</span>
-            </div>
-          </div>
-          <div class="collage-card aspect-[4/5]">
-            <img
-              src="pic8.jpg"
-              alt="Collage 10"
-              class="collage-img"
-              onerror="
-                this.src =
-                  'https://placehold.co/400x500/110008/ff1493?text=Pic+20'
-              "
-            />
-          </div>
-          <div class="collage-card aspect-[4/5]">
-            <img
-              src="pic21.jpeg"
-              alt="Collage 11"
-              class="collage-img"
-              onerror="
-                this.src =
-                  'https://placehold.co/400x500/110008/ff69b4?text=Pic+21'
-              "
-            />
-            <div class="collage-overlay">
-              <span class="readable-caption text-white text-2xl">Apki Julfeinnnnn</span>
-            </div>
-          </div>
-          <div class="collage-card aspect-[4/5]">
-            <img
-              src="pic22.jpeg"
-              alt="Collage 12"
-              class="collage-img"
-              onerror="
-                this.src =
-                  'https://placehold.co/400x500/110008/da70d6?text=Pic+22'
-              "
-            />
-          </div>
-          <div class="collage-card aspect-[4/5]">
-            <img
-              src="pic34.jpg"
-              alt="Collage 13"
-              class="collage-img"
-              onerror="
-                this.src =
-                  'https://placehold.co/400x500/110008/ff1493?text=Pic+23'
-              "
-            />
-            <div class="collage-overlay">
-              <span class="readable-caption text-white text-2xl"
-                >Memories 📸</span
-              >
-            </div>
-          </div>
-          <div class="collage-card aspect-[4/5]">
-            <img
-              src="pic24.jpeg"
-              alt="Collage 14"
-              class="collage-img"
-              onerror="
-                this.src =
-                  'https://placehold.co/400x500/110008/ff69b4?text=Pic+24'
-              "
-            />
-          </div>
-          <div class="collage-card aspect-[4/5]">
-            <img
-              src="pic37.jpg"
-              alt="Collage 15"
-              class="collage-img"
-              onerror="
-                this.src =
-                  'https://placehold.co/400x500/110008/da70d6?text=Pic+25'
-              "
-            />
-            <div class="collage-overlay">
-              <span class="readable-caption text-white text-2xl"
-                >Simplicity💖</span
-              >
-            </div>
-          </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-5 place-items-stretch text-left w-full">
+          <div class="collage-card aspect-[4/5]"><img src="pic12.jpg" alt="Collage 1" class="collage-img" onerror="this.src='https://placehold.co/400x500/110008/ff1493?text=Pic+11'"/><div class="collage-overlay"><span class="readable-caption text-white text-2xl">Priceless ✨</span></div></div>
+          <div class="collage-card aspect-[4/5]"><img src="pic11.jpg" alt="Collage 2" class="collage-img" onerror="this.src='https://placehold.co/400x500/110008/ff69b4?text=Pic+12'"/></div>
+          <div class="collage-card aspect-[4/5]"><img src="pic7.jpg" alt="Collage 3" class="collage-img" onerror="this.src='https://placehold.co/400x500/110008/da70d6?text=Pic+13'"/><div class="collage-overlay"><span class="readable-caption text-white text-2xl">Gorgeous 🌸</span></div></div>
+          <div class="collage-card aspect-[4/5]"><img src="pic14.jpg" alt="Collage 4" class="collage-img" onerror="this.src='https://placehold.co/400x500/110008/ff1493?text=Pic+14'"/></div>
+          <div class="collage-card aspect-[4/5]"><img src="pic35.jpg" alt="Collage 5" class="collage-img" onerror="this.src='https://placehold.co/400x500/110008/ff69b4?text=Pic+15'"/><div class="collage-overlay"><span class="readable-caption text-white text-2xl">Herooo😅😅</span></div></div>
+          <div class="collage-card aspect-[4/5]"><img src="pic16.jpg" alt="Collage 6" class="collage-img" onerror="this.src='https://placehold.co/400x500/110008/da70d6?text=Pic+16'"/></div>
+          <div class="collage-card aspect-[4/5]"><img src="pic17.jpeg" alt="Collage 7" class="collage-img" onerror="this.src='https://placehold.co/400x500/110008/ff1493?text=Pic+17'"/><div class="collage-overlay"><span class="readable-caption text-white text-2xl">Cutie 🥰</span></div></div>
+          <div class="collage-card aspect-[4/5]"><img src="pic18.jpeg" alt="Collage 8" class="collage-img" onerror="this.src='https://placehold.co/400x500/110008/ff69b4?text=Pic+18'"/></div>
+          <div class="collage-card aspect-[4/5]"><img src="pic19.jpeg" alt="Collage 9" class="collage-img" onerror="this.src='https://placehold.co/400x500/110008/da70d6?text=Pic+19'"/><div class="collage-overlay"><span class="readable-caption text-white text-2xl">Vibes 💫</span></div></div>
+          <div class="collage-card aspect-[4/5]"><img src="pic8.jpg" alt="Collage 10" class="collage-img" onerror="this.src='https://placehold.co/400x500/110008/ff1493?text=Pic+20'"/></div>
+          <div class="collage-card aspect-[4/5]"><img src="pic21.jpeg" alt="Collage 11" class="collage-img" onerror="this.src='https://placehold.co/400x500/110008/ff69b4?text=Pic+21'"/><div class="collage-overlay"><span class="readable-caption text-white text-2xl">Apki Julfeinnnnn</span></div></div>
+          <div class="collage-card aspect-[4/5]"><img src="pic22.jpeg" alt="Collage 12" class="collage-img" onerror="this.src='https://placehold.co/400x500/110008/da70d6?text=Pic+22'"/></div>
+          <div class="collage-card aspect-[4/5]"><img src="pic34.jpg" alt="Collage 13" class="collage-img" onerror="this.src='https://placehold.co/400x500/110008/ff1493?text=Pic+23'"/><div class="collage-overlay"><span class="readable-caption text-white text-2xl">Memories 📸</span></div></div>
+          <div class="collage-card aspect-[4/5]"><img src="pic24.jpeg" alt="Collage 14" class="collage-img" onerror="this.src='https://placehold.co/400x500/110008/ff69b4?text=Pic+24'"/></div>
+          <div class="collage-card aspect-[4/5]"><img src="pic37.jpg" alt="Collage 15" class="collage-img" onerror="this.src='https://placehold.co/400x500/110008/da70d6?text=Pic+25'"/><div class="collage-overlay"><span class="readable-caption text-white text-2xl">Simplicity💖</span></div></div>
         </div>
 
-        <p
-          class="readable-caption text-center mt-10 text-pink-200 text-3xl drop-shadow-[0_0_10px_rgba(255,20,147,0.8)] animate-pulse"
-        >
-          Appko Photos Pasand Aur Mujhe Photos Main Aap😏🥰✨
-        </p>
+        <p class="readable-caption text-center mt-10 text-pink-200 text-3xl drop-shadow-[0_0_10px_rgba(255,20,147,0.8)] animate-pulse">Appko Photos Pasand Aur Mujhe Photos Main Aap😏🥰✨</p>
 
-        <div
-          class="mt-12 mb-8 text-center flex flex-col items-center gap-4 px-2 w-full"
-        >
-          <p
-            class="text-lg sm:text-xl md:text-2xl text-pink-200 font-semibold drop-shadow-md break-words"
-          >
-            connection dekho guys 👀
-          </p>
-          <button
-            onclick="goToStep(8)"
-            class="glass-btn font-bold py-3 px-10 text-lg"
-          >
-            Han ji ✨
-          </button>
-          <button
-            onclick="goToStep(6)"
-            class="glass-btn mt-6 font-semibold py-2 px-6 text-sm"
-          >
-            Wapas Videos Pe 🔙
-          </button>
+        <div class="mt-12 mb-8 text-center flex flex-col items-center gap-4 px-2 w-full">
+          <p class="text-lg sm:text-xl md:text-2xl text-pink-200 font-semibold drop-shadow-md break-words">connection dekho guys 👀</p>
+          <button onclick="window.goToStep(8)" class="glass-btn font-bold py-3 px-10 text-lg">Han ji ✨</button>
+          <button onclick="window.goToStep(6)" class="glass-btn mt-6 font-semibold py-2 px-6 text-sm">Wapas Videos Pe 🔙</button>
         </div>
       </div>
     </div>
 
     <!-- Step 8: Cute Baby Anvi Section -->
-    <div
-      id="step-8"
-      class="step w-full h-full px-4 sm:px-8 flex flex-col justify-center items-center"
-    >
+    <div id="step-8" class="step w-full h-full px-4 sm:px-8 flex flex-col justify-center items-center">
       <div class="max-w-lg mx-auto w-full text-center">
-        <h2
-          class="text-3xl md:text-5xl font-bold cursive-font text-center glow-text text-white mb-8 leading-tight"
-        >
-         For Modern Mumma 🎀
-        </h2>
-        <div
-          class="relative group mb-8 mx-auto w-full max-w-[250px] sm:max-w-[300px]"
-        >
-          <div
-            class="absolute -inset-2 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full blur-xl opacity-80 animate-pulse"
-          ></div>
-          <img
-            src="baby_anvi.png"
-            alt="Baby Anvi"
-            class="relative w-full aspect-square object-cover rounded-full border-4 border-pink-400 shadow-[0_0_30px_rgba(255,20,147,0.6)]"
-            onerror="
-              this.src =
-                'https://placehold.co/400x400/110008/ff1493?text=Baby+Anvi'
-            "
-          />
+        <h2 class="text-3xl md:text-5xl font-bold cursive-font text-center glow-text text-white mb-8 leading-tight">For Modern Mumma 🎀</h2>
+        <div class="relative group mb-8 mx-auto w-full max-w-[250px] sm:max-w-[300px]">
+          <div class="absolute -inset-2 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full blur-xl opacity-80 animate-pulse"></div>
+          <img src="baby_anvi.png" alt="Baby Anvi" class="relative w-full aspect-square object-cover rounded-full border-4 border-pink-400 shadow-[0_0_30px_rgba(255,20,147,0.6)]" onerror="this.src='https://placehold.co/400x400/110008/ff1493?text=Baby+Anvi'"/>
         </div>
         
         <div class="min-h-[120px] flex flex-col items-center justify-center w-full">
-            <p
-            class="text-xl sm:text-2xl md:text-3xl text-white font-semibold drop-shadow-[0_0_10px_rgba(255,20,147,0.5)] leading-relaxed font-['Caveat'] w-full"
-            >
-            <span id="baby-text-1"></span><span id="baby-text-2" class="text-pink-400 font-bold text-3xl sm:text-4xl drop-shadow-[0_0_10px_#ff1493]"></span><span id="baby-text-3"></span>
+            <p class="text-xl sm:text-2xl md:text-3xl text-white font-semibold drop-shadow-[0_0_10px_rgba(255,20,147,0.5)] leading-relaxed font-['Caveat'] w-full">
+              <span id="baby-text-1"></span><span id="baby-text-2" class="text-pink-400 font-bold text-3xl sm:text-4xl drop-shadow-[0_0_10px_#ff1493]"></span><span id="baby-text-3"></span>
             </p>
             <p id="baby-text-4" class="glow-text text-3xl sm:text-4xl mt-4 block font-semibold font-['Caveat'] w-full"></p>
         </div>
 
         <div class="mt-12 text-center w-full">
-          <button
-            onclick="goToStep(7)"
-            class="glass-btn font-semibold py-2 px-6 text-sm"
-          >
-            Wapas ja sakti ho 🔙
-          </button>
+          <button onclick="window.goToStep(7)" class="glass-btn font-semibold py-2 px-6 text-sm">Wapas ja sakti ho 🔙</button>
         </div>
       </div>
     </div>
@@ -1965,7 +1106,8 @@
       let wishTimeout;
       let typingTimeouts = {};
 
-      function goToStep(stepNumber) {
+      // GLOBAL FUNCTIONS FOR INLINE ONCLICK HANDLERS
+      window.goToStep = function(stepNumber) {
         document.querySelectorAll(".step").forEach((el) => el.classList.remove("active"));
 
         let stepId = `step-${stepNumber}`;
@@ -1987,32 +1129,18 @@
         } else if (stepNumber === 8) {
           startBabyTyping();
         }
-      }
+      };
 
-      function openNewCard() {
+      window.openNewCard = function() {
         const card = document.getElementById("greeting-card");
         const cover = document.getElementById("greeting-cover");
 
         if (!card.classList.contains("open")) {
           card.classList.add("open");
-
-          const isMobile = window.innerWidth < 640;
           cover.style.transform = "rotateY(-160deg)";
-
-          if (isMobile) {
-            /* On mobile, card is ~260-280px wide.
-               When cover flips open (left hinge), the inside page appears on the right.
-               We shift card right by exactly half its width so both halves are visible & centred. */
-            const cardW = card.offsetWidth;
-            const viewW = window.innerWidth;
-            /* Shift = half card width, but clamp so nothing goes off-screen */
-            const maxShift = (viewW - cardW) / 2;
-            const shift = Math.min(cardW * 0.48, maxShift > 0 ? maxShift : cardW * 0.3);
-            card.style.transform = `translateX(${shift}px)`;
-          } else {
-            card.style.transform = `translateX(50%) scale(0.9)`;
-          }
-
+          
+          // Remove any transform from card so CSS centering takes over
+          card.style.transform = "";
           card.style.boxShadow = "0 30px 60px rgba(0,0,0,0.8)";
 
           setTimeout(() => {
@@ -2023,14 +1151,19 @@
             }
           }, 1000);
         }
-      }
+      };
 
-      function turnPage(event) {
+      window.turnPage = function(event) {
         event.stopPropagation();
         const page1 = document.getElementById("msg-page-1");
         const page2 = document.getElementById("msg-page-2");
-        const nextPageBtn = document.getElementById("book-next-page-btn");
-        const nextStepBtn = document.getElementById("book-next-step-btn");
+        const btn = document.getElementById("book-next-page-btn");
+
+        // Check if already on page 2 (button says Aage Badhein)
+        if (btn.dataset.state === "final") {
+          window.openCurtainStep();
+          return;
+        }
 
         page1.style.transform = "translateX(-100%)";
         page1.style.opacity = "0";
@@ -2040,9 +1173,10 @@
         page2.style.opacity = "1";
         page2.style.pointerEvents = "auto";
 
-        nextPageBtn.classList.add("hidden");
-        nextStepBtn.classList.remove("hidden");
-      }
+        // Change same button text
+        btn.textContent = "Aage Badhein ➡️";
+        btn.dataset.state = "final";
+      };
       
       function typeWriter(elementId, text, speed, callback) {
           if (typingTimeouts[elementId]) {
@@ -2070,8 +1204,8 @@
           type();
       }
 
-      function openCurtainStep() {
-        goToStep('curtain');
+      window.openCurtainStep = function() {
+        window.goToStep('curtain');
         setTimeout(() => {
             document.getElementById('left-curtain').style.transform = 'translateX(-100%)';
             document.getElementById('right-curtain').style.transform = 'translateX(100%)';
@@ -2087,7 +1221,7 @@
                 }, 400);
             }, 1000);
         }, 500);
-      }
+      };
 
       let hasVideoTyped = false;
       function startVideoTyping() {
@@ -2207,8 +1341,8 @@
         setTimeout(() => wrapper.remove(), duration * 1000);
       }
 
-      function startFinalCelebration() {
-        goToStep(4);
+      window.startFinalCelebration = function() {
+        window.goToStep(4);
         setTimeout(() => {
           startConfetti();
           startHearts();
@@ -2218,7 +1352,7 @@
              startWishCycle();
           });
         }, 600);
-      }
+      };
 
       function startWishCycle() {
         const wishTextElement = document.getElementById("wish-text");
@@ -2307,24 +1441,6 @@
         setTimeout(() => container.remove(), duration * 1000);
       }
 
-      function showAngryPrompt() {
-        document.getElementById("gallery-prompt-1").classList.add("hidden");
-        document.getElementById("gallery-prompt-2").classList.remove("hidden");
-        document.getElementById("gallery-prompt-2").classList.add("block");
-        const bunny = document.getElementById('prank-bunny');
-        if(bunny) bunny.style.transform = 'translateY(0) rotate(15deg)';
-      }
-
-      function moveButton() {
-        const btn = document.getElementById("runaway-btn");
-        const isMobile = window.innerWidth < 600;
-        const limitX = isMobile ? 40 : 200;
-        const limitY = isMobile ? 30 : 150;
-        const xAmount = (Math.random() - 0.5) * limitX;
-        const yAmount = (Math.random() - 0.5) * limitY;
-        btn.style.transform = `translate(${xAmount}px, ${yAmount}px)`;
-      }
-
       const memories = [
         { img: "pic1.jpg", text: "aapki simplicity hi aapki sabse badi khoobsurti hai 💫! 💕" },
         { img: "pic32.png", text: "aapki hasi kisi bhi din ko perfect bana deti hai 😊" },
@@ -2339,10 +1455,10 @@
       ];
       let currentPhotoIndex = 0;
 
-      function goToGallery() {
-        goToStep(5);
+      window.goToGallery = function() {
+        window.goToStep(5);
         updateCarouselContent();
-      }
+      };
 
       function updateCarouselContent() {
         const imgEl = document.getElementById("carousel-img");
@@ -2366,15 +1482,15 @@
         }, 250);
       }
 
-      function nextPhoto() {
+      window.nextPhoto = function() {
         currentPhotoIndex = (currentPhotoIndex + 1) % memories.length;
         updateCarouselContent();
-      }
+      };
       
-      function prevPhoto() {
+      window.prevPhoto = function() {
         currentPhotoIndex = (currentPhotoIndex - 1 + memories.length) % memories.length;
         updateCarouselContent();
-      }
+      };
 
       let touchstartX = 0;
       let touchendX = 0;
@@ -2428,8 +1544,8 @@
       }
 
       function handleSwipeGesture() {
-        if (touchendX < touchstartX - 50) nextPhoto();
-        if (touchendX > touchstartX + 50) prevPhoto();
+        if (touchendX < touchstartX - 50) window.nextPhoto();
+        if (touchendX > touchstartX + 50) window.prevPhoto();
       }
     </script>
   </body>
